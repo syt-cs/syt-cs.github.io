@@ -4,8 +4,8 @@ import React from 'react';
 const CV = () => {
   return (
     <div style={{ textAlign: 'center', padding: '2rem' }}>
-      <h1>CV</h1>
-      <p>If the resume doesn’t show, <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">click here to download it</a>.</p>
+      <h1>Resume</h1>
+      <p>If my resume doesn’t show, <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">click here to download it</a>.</p>
       <iframe
         src="/resume.pdf"
         title="Resume"
