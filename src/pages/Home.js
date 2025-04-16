@@ -17,12 +17,11 @@ const Home = () => {
       </div>
       <p>
         My name is Sean Takahashi and I'm currently a junior at <a href="https://stuy.enschool.org" target="_blank" rel="noopener noreferrer">Stuyvesant High School</a>. 
-        My interests lie in using ethical data collection and machine learning to optimize user services.  
+        My interests lie in data science and machine learning, and I hope to conduct further research in these fields.  
       </p>
       <p>
         Check out my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a> or contact me at seanyuto@gmail.com. 
       </p>
-
     </div>
   );
 };
