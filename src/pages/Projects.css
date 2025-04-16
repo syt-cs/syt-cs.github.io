@@ -26,8 +26,6 @@
     width: 180px;
     height: 180px;
     object-fit: cover;
-    border-radius: 50%;
-    border: 4px dashed #ccc;
     margin-bottom: 15px;
   }
   
