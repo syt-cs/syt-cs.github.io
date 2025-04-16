@@ -1,4 +1,3 @@
-// src/pages/CV.js
 import React from 'react';
 
 const CV = () => {
