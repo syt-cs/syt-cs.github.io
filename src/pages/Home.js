@@ -5,6 +5,7 @@ import './Home.css';
 const Home = () => {
   return (
     <div className="home-container">
+      <img src="/pfp.jpg" alt="Sean Takahashi" className="profile-image" />
       <h1>Sean Takahashi</h1>
       <div className="social-links">
         <a href="https://github.com/syt-cs" target="_blank" rel="noopener noreferrer">
@@ -19,7 +20,7 @@ const Home = () => {
         My interests lie in using ethical data collection and machine learning to optimize user services.  
       </p>
       <p>
-        Check out my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>, view my recent projects on GitHub, or connect with me on LinkedIn. 
+        Check out my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a> or contact me at seanyuto@gmail.com. 
       </p>
 
     </div>
