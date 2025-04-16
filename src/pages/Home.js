@@ -19,7 +19,7 @@ const Home = () => {
         My interests lie in using ethical data collection and machine learning to optimize user services.  
       </p>
       <p>
-        Check out my <a href="/CV">resume</a>, view my recent projects on GitHub, or connect with me on LinkedIn. 
+        Check out my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>, view my recent projects on GitHub, or connect with me on LinkedIn. 
       </p>
 
     </div>
