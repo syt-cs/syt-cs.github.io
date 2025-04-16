@@ -12,7 +12,7 @@ const Home = () => {
         New York, NY
       </div>
       <div className="social-links fade-in delay-3">
-        <a href="https://github.com/syt-cs" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/Paperdasher" target="_blank" rel="noopener noreferrer">
           <FaGithub size={40} color="#3498db" />
         </a>
         <a href="https://linkedin.com/in/seantakahashi" target="_blank" rel="noopener noreferrer">
