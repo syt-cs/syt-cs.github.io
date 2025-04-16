@@ -1,0 +1,38 @@
+.projects-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+  }
+  
+  .projects-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .projects-text {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .work-in-progress-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px dashed #ccc;
+    margin-bottom: 15px;
+  }
+  
+  .coming-soon-text {
+    font-size: 1rem;
+    color: #777;
+  }
+  
