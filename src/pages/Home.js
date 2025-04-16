@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <img src="/pfp.jpg" alt="Sean Takahashi" className="profile-image fade-in" />
-      <h1 className="fade-in delay-1">sean takahashi</h1>
+      <h1 className="fade-in delay-1">Sean Takahashi</h1>
       <div className="home-location fade-in delay-2">
         <FaMapMarkerAlt />
         New York, NY
