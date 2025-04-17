@@ -4,10 +4,10 @@ import './About.css';
 
 const About = () => {
   return (
-    <div className="home-container">
+    <div className="about-container">
       <img src="/pfp.jpg" alt="Sean Takahashi" className="profile-image fade-in" />
       <h1 className="fade-in delay-1">Sean Takahashi</h1>
-      <div className="home-location fade-in delay-2">
+      <div className="about-location fade-in delay-2">
         <FaMapMarkerAlt />
         New York, NY
       </div>

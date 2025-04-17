@@ -1,4 +1,4 @@
-.home-container {
+.about-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,14 +10,14 @@
   margin: 0;
 }
 
-.home-container h1 {
+.about-container h1 {
   font-size: 3rem;
   color: #2c3e50;
   margin-bottom: 1rem;
   font-weight: bold;
 }
 
-.home-container p {
+.about-container p {
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -25,16 +25,16 @@
   max-width: 600px;
 }
 
-.home-container a {
+.about-container a {
   text-decoration: none;
   color: #3498db;
 }
 
-.home-container a:hover {
+.about-container a:hover {
   text-decoration: underline;
 }
 
-.home-location {
+.about-location {
   display: flex;
   align-items: center;
   font-size: 1.5rem;
@@ -42,7 +42,7 @@
   margin-bottom: 1rem;
 }
 
-.home-location svg {
+.about-location svg {
   margin-right: 8px;
 }
 
