@@ -1,23 +1,23 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
 .home-container {
-  width: 100vw;
-  height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
-  overflow: hidden;
+  height: 100vh;
+  text-align: left;
 }
 
 .intro-container {
   width: 70%;
-  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  padding-left: 5vw;
-  padding-top: 0;
-  padding-bottom: 0;
 }
 
 .line-sean {
@@ -25,16 +25,13 @@
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
-  text-align: left;
   color: #ffffff;
 }
 
 .line-takahashi {
   font-size: 6vw;
   font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
-  text-align: left;
+  margin-top: 10px;
   background-color: #ffffff;
   color: #000000;
   padding: 0 16px;
@@ -43,7 +40,8 @@
   cursor: pointer;
   width: fit-content;
   min-width: 320px;
-  max-width: 90vw;
+  max-width: 100%;
+  margin-left: -6px; /* nudges box left to align "T" with "S" */
 }
 
 .scroll-container {
@@ -53,7 +51,7 @@
 }
 
 .scrolling-text {
-  transition: transform 0.2s ease-out;
+  transition: transform 0.4s ease-in-out;
   display: flex;
   flex-direction: column;
 }
@@ -65,4 +63,3 @@
   justify-content: flex-start;
   white-space: nowrap;
 }
-
