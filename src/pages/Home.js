@@ -61,7 +61,7 @@ const Home = () => {
     try {
       return require(`../assets/${keyword}.png`);
     } catch {
-      return require(`../assets/inprogress.png`);
+      return require(`../assets/inprogress.jpg`);
     }
   };
 
