@@ -2,44 +2,56 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
-const Home = () => {
-  const phrases = [
-    "is a programmer",
-    "is a swimmer",
-    "wants to travel to Europe",
-    "loves cooking",
-    "is Japanese \uD83C\uDDEF\uD83C\uDDF5",
-    "loves the outdoors"
-  ];
+const phrases = [
+  "is a programmer",
+  "is a swimmer",
+  "wants to travel to Europe",
+  "loves cooking",
+  "is Japanese 🇯🇵",
+  "loves the outdoors"
+];
 
-  const [displayText, setDisplayText] = useState("Takahashi");
-  const [isHovering, setIsHovering] = useState(false);
+const Home = () => {
+  const [currentPhrase, setCurrentPhrase] = useState("Takahashi");
+  const [isScrolling, setIsScrolling] = useState(false);
   const navigate = useNavigate();
-  const scrollIntervalRef = useRef(null);
+  const scrollRef = useRef(null);
   const stopTimeoutRef = useRef(null);
 
   const handleMouseEnter = () => {
-    setIsHovering(true);
+    setIsScrolling(true);
 
-    // Start scrolling phrases
-    scrollIntervalRef.current = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * phrases.length);
-      setDisplayText(phrases[randomIndex]);
-    }, 200);
+    // Start animation
+    scrollRef.current.style.transition = 'transform 1.5s ease-in-out';
 
-    // Stop after 1.5 seconds and pick one phrase to freeze on
+    // Create a long list of phrases to simulate scroll effect
+    const longList = Array.from({ length: 20 }, () =>
+      phrases[Math.floor(Math.random() * phrases.length)]
+    );
+
+    // Append final phrase at the end
+    const finalPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+    longList.push(finalPhrase);
+
+    setCurrentPhrase(longList);
+
+    // Scroll animation
+    const itemHeight = 96; // 6rem = 96px
+    scrollRef.current.style.transform = `translateY(-${itemHeight * (longList.length - 1)}px)`;
+
+    // Stop scroll after 1.5s and freeze
     stopTimeoutRef.current = setTimeout(() => {
-      clearInterval(scrollIntervalRef.current);
-      const finalIndex = Math.floor(Math.random() * phrases.length);
-      setDisplayText(phrases[finalIndex]);
+      setCurrentPhrase(finalPhrase);
+      setIsScrolling(false);
     }, 1500);
   };
 
   const handleMouseLeave = () => {
-    setIsHovering(false);
-    clearInterval(scrollIntervalRef.current);
     clearTimeout(stopTimeoutRef.current);
-    setDisplayText("Takahashi");
+    setIsScrolling(false);
+    scrollRef.current.style.transition = 'none';
+    scrollRef.current.style.transform = 'translateY(0)';
+    setCurrentPhrase("Takahashi");
   };
 
   const handleClick = () => {
@@ -50,13 +62,23 @@ const Home = () => {
     <div className="home-container">
       <div className="text-block">
         <div className="line-sean">Sean</div>
+
         <div
           className="line-takahashi"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onClick={handleClick}
         >
-          {displayText}
+          <div className="scroll-container">
+            <div className="scrolling-text" ref={scrollRef}>
+              {isScrolling
+                ? Array.isArray(currentPhrase) &&
+                  currentPhrase.map((phrase, idx) => (
+                    <div key={idx} className="scroll-item">{phrase}</div>
+                  ))
+                : <div className="scroll-item">{currentPhrase}</div>}
+            </div>
+          </div>
         </div>
       </div>
     </div>

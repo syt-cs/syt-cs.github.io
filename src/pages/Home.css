@@ -9,14 +9,14 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* align content to the left */
+  padding-left: 5vw; /* or adjust to taste */
+  background-color: #000;
 }
 
 .text-block {
-  width: 50vw;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
   transform: translateY(-10%);
 }
@@ -25,7 +25,8 @@ body {
   font-size: 6rem;
   font-weight: bold;
   color: white;
-  margin-bottom: 20px;
+  margin: 0;
+  line-height: 1;
 }
 
 .line-takahashi {
@@ -33,10 +34,37 @@ body {
   font-weight: bold;
   background-color: white;
   color: black;
-  padding: 15px 40px;
+  padding: 0 40px 0 0; /* right padding only */
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
   border-radius: 0;
   white-space: nowrap;
+  height: 96px;
+  overflow: hidden;
+  margin: 0;
+  line-height: 1;
 }
+
+.scroll-container {
+  height: 96px;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrolling-text {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: left;
+}
+
+.scroll-item {
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 0;
+}
+
