@@ -1,60 +1,52 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
-const phrases = [
-  "is a programmer",
-  "is a swimmer",
-  "wants to travel to Europe",
-  "loves cooking",
-  "is Japanese 🇯🇵",
-  "loves the outdoors"
-];
-
 const Home = () => {
-  const [currentPhrase, setCurrentPhrase] = useState("Takahashi");
-  const [isScrolling, setIsScrolling] = useState(false);
+  const texts = [
+    "Takahashi",
+    "is a programmer",
+    "is a swimmer",
+    "wants to travel to Europe",
+    "loves cooking",
+    "is Japanese 🇯🇵",
+    "loves the outdoors"
+  ];
+
+  const [textIndex, setTextIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
-  const scrollRef = useRef(null);
-  const stopTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    let interval;
+    if (isHovering) {
+      const randomIndex = Math.floor(Math.random() * (texts.length - 1)) + 1; // skip index 0
+      const steps = randomIndex;
+      let currentStep = 0;
+
+      interval = setInterval(() => {
+        setTextIndex((prev) => (prev + 1) % texts.length);
+        currentStep++;
+        if (currentStep === steps) {
+          clearInterval(interval);
+        }
+      }, 150);
+    } else {
+      setTextIndex(0); // Reset to "Takahashi"
+    }
+
+    return () => clearInterval(interval);
+  }, [isHovering]);
 
   const handleMouseEnter = () => {
-    setIsScrolling(true);
-
-    // Start animation
-    scrollRef.current.style.transition = 'transform 1.5s ease-in-out';
-
-    // Create a long list of phrases to simulate scroll effect
-    const longList = Array.from({ length: 20 }, () =>
-      phrases[Math.floor(Math.random() * phrases.length)]
-    );
-
-    // Append final phrase at the end
-    const finalPhrase = phrases[Math.floor(Math.random() * phrases.length)];
-    longList.push(finalPhrase);
-
-    setCurrentPhrase(longList);
-
-    // Scroll animation
-    const itemHeight = 96; // 6rem = 96px
-    scrollRef.current.style.transform = `translateY(-${itemHeight * (longList.length - 1)}px)`;
-
-    // Stop scroll after 1.5s and freeze
-    stopTimeoutRef.current = setTimeout(() => {
-      setCurrentPhrase(finalPhrase);
-      setIsScrolling(false);
-    }, 1500);
+    setIsHovering(true);
   };
 
   const handleMouseLeave = () => {
-    clearTimeout(stopTimeoutRef.current);
-    setIsScrolling(false);
-    scrollRef.current.style.transition = 'none';
-    scrollRef.current.style.transform = 'translateY(0)';
-    setCurrentPhrase("Takahashi");
+    setIsHovering(false);
   };
 
-  const handleClick = () => {
+  const handleNavigateToAbout = () => {
     navigate('/about');
   };
 
@@ -85,6 +77,5 @@ const Home = () => {
     </div>
   );
 };
-  
 
 export default Home;
