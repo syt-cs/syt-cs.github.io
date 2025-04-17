@@ -28,7 +28,12 @@ const Home = () => {
         if (!start) start = timestamp;
         const progress = Math.min((timestamp - start) / duration, 1);
         const easedProgress = easeInOutCubic(progress);
-        setAnimatedIndex(animatedIndex + distance * easedProgress);
+
+        // Set animatedIndex with easedProgress (ensures smooth transition)
+        const newIndex = Math.floor(animatedIndex + distance * easedProgress);
+        
+        // Clamp the newIndex to ensure it stays within bounds (0 to texts.length - 1)
+        setAnimatedIndex(Math.min(Math.max(newIndex, 0), texts.length - 1));
 
         if (progress < 1) {
           animationFrame = requestAnimationFrame(step);
