@@ -13,20 +13,27 @@ const Home = () => {
   ];
 
   const [textIndex, setTextIndex] = useState(0);
+  const [isHovering, setIsHovering] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
-    }, 1500); // Change every 1.5 seconds
+    if (!isHovering) {
+      const interval = setInterval(() => {
+        setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+      }, 1500); // Change every 1.5 seconds
 
-    return () => clearInterval(interval);
-  }, []);
+      return () => clearInterval(interval);
+    }
+  }, [isHovering]);
 
-  const handleRandomScroll = () => {
+  const handleMouseEnter = () => {
+    setIsHovering(true);
     const randomIndex = Math.floor(Math.random() * texts.length);
     setTextIndex(randomIndex);
-    document.getElementById(`phrase-${randomIndex}`).scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
   };
 
   const handleNavigateToAbout = () => {
@@ -35,25 +42,14 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="home-title">
-        Sean{' '}
-        <span
-          className="hover-takahashi"
-          onMouseEnter={handleRandomScroll}
-        >
-          Takahashi
-        </span>
-      </h1>
-      <p className="home-subtitle">Sean {texts[textIndex]}</p>
-      <button className="random-button" onClick={handleNavigateToAbout}>
-        I'm Feeling Lucky
-      </button>
-      <div className="phrases-container">
-        {texts.map((text, index) => (
-          <div key={index} id={`phrase-${index}`} className="phrase">
-            Sean {text}
-          </div>
-        ))}
+      <h1 className="home-title">Sean</h1>
+      <div
+        className="hover-takahashi"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onClick={handleNavigateToAbout}
+      >
+        Takahashi
       </div>
     </div>
   );
