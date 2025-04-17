@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useRef } from 'react';
 import './Home.css';
 
 const Home = () => {
@@ -13,90 +12,94 @@ const Home = () => {
     "loves the outdoors"
   ];
 
-  const [targetIndex, setTargetIndex] = useState(0);  // Index of the target phrase
-  const [animatedIndex, setAnimatedIndex] = useState(0);  // Current animated index
-  const navigate = useNavigate();
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedPhrase, setSelectedPhrase] = useState("Takahashi");
+  const containerRef = useRef(null);
 
-  const animatedIndexRef = useRef(animatedIndex);
+  const scrollToIndex = (index) => {
+    const itemHeight = containerRef.current?.clientHeight || 40;
+    const scrollContainer = containerRef.current;
+    if (!scrollContainer) return;
 
-  useEffect(() => {
-    let animationFrame;
-    let start;
-    const duration = 600;
-    const startIndex = animatedIndexRef.current;
-    const distance = targetIndex - startIndex;
-  
-    if (distance !== 0) {
-      const step = (timestamp) => {
-        if (!start) start = timestamp;
-        const progress = Math.min((timestamp - start) / duration, 1);
-        const easedProgress = easeInOutCubic(progress);
-  
-        const interpolatedIndex = startIndex + distance * easedProgress;
-        animatedIndexRef.current = interpolatedIndex;
-        setAnimatedIndex(interpolatedIndex); // no floor here — keep it smooth
-  
-        if (progress < 1) {
-          animationFrame = requestAnimationFrame(step);
-        } else {
-          animatedIndexRef.current = targetIndex;
-          setAnimatedIndex(targetIndex); // Snap to final phrase
-        }
-      };
-  
-      animationFrame = requestAnimationFrame(step);
-    }
-  
-    return () => cancelAnimationFrame(animationFrame);
-  }, [targetIndex]);
-  
+    const targetY = index * itemHeight;
+    scrollContainer.style.transition = 'transform 0.6s ease-in-out';
+    scrollContainer.style.transform = `translateY(-${targetY}px)`;
 
-  const easeInOutCubic = (t) =>
-    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-  const [selectedIndex, setSelectedIndex] = useState(0);
+    setCurrentIndex(index);
+    setSelectedPhrase(texts[index]);
+  };
 
   const handleMouseEnter = () => {
-    let newIndex = Math.floor(Math.random() * texts.length);
-    while (newIndex === targetIndex) {
-      newIndex = Math.floor(Math.random() * texts.length);
+    let randomIndex = Math.floor(Math.random() * texts.length);
+    while (randomIndex === 0) {
+      randomIndex = Math.floor(Math.random() * texts.length);
     }
-    setSelectedIndex(newIndex); // Save for conditionals or navigation
-    setTargetIndex(newIndex);
+    scrollToIndex(randomIndex);
   };
-  
 
   const handleMouseLeave = () => {
-    setTargetIndex(0); // Always go back to “Takahashi” when mouse leaves
+    scrollToIndex(0); // Back to “Takahashi”
   };
 
   const handleNavigateToAbout = () => {
-    navigate('/about');
+    if (currentIndex !== 0) {
+      const sectionId = `section-${currentIndex}`;
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  const getImageSrc = (phrase) => {
+    const keyword = phrase
+      .toLowerCase()
+      .replace(/[^\w\s]/gi, '')
+      .split(' ')
+      .pop();
+
+    try {
+      return require(`../assets/${keyword}.png`);
+    } catch {
+      return require(`../assets/inprogress.png`);
+    }
   };
 
   return (
-    <div className="home-container">
-      <div className="intro-container">
-        <h1 className="line-sean">Sean</h1>
-        <div
-          className="line-takahashi"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onClick={handleNavigateToAbout}
-        >
-          <div className="scroll-container">
-            <div
-              className="scrolling-text"
-              style={{ transform: `translateY(-${animatedIndex * 100}%)` }}
-            >
-              {texts.map((text, i) => (
-                <div className="scroll-item" key={i}>
-                  {text}
-                </div>
-              ))}
+    <div className="home-page">
+      <div className="home-container">
+        <div className="intro-container">
+          <h1 className="line-sean">Sean</h1>
+          <div
+            className="line-takahashi"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={handleNavigateToAbout}
+          >
+            <div className="scroll-container" style={{ height: '6vw', overflow: 'hidden' }}>
+              <div className="scrolling-text" ref={containerRef}>
+                {texts.map((text, i) => (
+                  <div
+                    className="scroll-item"
+                    key={i}
+                    style={{ height: '6vw', lineHeight: '6vw' }}
+                  >
+                    {text}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Image sections */}
+      <div className="image-gallery">
+        {texts.slice(1).map((phrase, index) => (
+          <div key={index} id={`section-${index + 1}`} className="image-section">
+            <img src={getImageSrc(phrase)} alt={phrase} />
+          </div>
+        ))}
       </div>
     </div>
   );

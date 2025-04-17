@@ -5,6 +5,10 @@ body {
   color: #ffffff;
 }
 
+.home-page {
+  scroll-behavior: smooth;
+}
+
 .home-container {
   display: flex;
   justify-content: center;
@@ -41,7 +45,7 @@ body {
   width: fit-content;
   min-width: 320px;
   max-width: 100%;
-  margin-left: -6px; /* nudges box left to align "T" with "S" */
+  margin-left: -6px; /* aligns with "Sean" */
 }
 
 .scroll-container {
@@ -62,4 +66,27 @@ body {
   align-items: center;
   justify-content: flex-start;
   white-space: nowrap;
+}
+
+/* Image Section Styles */
+.image-gallery {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-section {
+  width: 100%;
+  padding: 60px 0;
+  display: flex;
+  justify-content: center;
+  scroll-margin-top: 100px;
+}
+
+.image-section img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
