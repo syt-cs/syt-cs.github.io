@@ -55,10 +55,12 @@ body {
 }
 
 .scrolling-text {
-  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+  transition: transform 0.8s ease-in-out;
   display: flex;
   flex-direction: column;
 }
+
 
 .scroll-item {
   height: 6vw;
