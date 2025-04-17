@@ -1,31 +1,60 @@
-import React from 'react';
-import { FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
+  const texts = [
+    "is a programmer",
+    "is a swimmer",
+    "wants to travel to Europe",
+    "loves cooking",
+    "is Japanese",
+    "loves the outdoors"
+  ];
+
+  const [textIndex, setTextIndex] = useState(0);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTextIndex((prevIndex) => (prevIndex + 1) % texts.length);
+    }, 1500); // Change every 1.5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleRandomScroll = () => {
+    const randomIndex = Math.floor(Math.random() * texts.length);
+    setTextIndex(randomIndex);
+    document.getElementById(`phrase-${randomIndex}`).scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleNavigateToAbout = () => {
+    navigate('/about');
+  };
+
   return (
     <div className="home-container">
-      <img src="/pfp.jpg" alt="Sean Takahashi" className="profile-image fade-in" />
-      <h1 className="fade-in delay-1">Sean Takahashi</h1>
-      <div className="home-location fade-in delay-2">
-        <FaMapMarkerAlt />
-        New York, NY
+      <h1 className="home-title">
+        Sean{' '}
+        <span
+          className="hover-takahashi"
+          onMouseEnter={handleRandomScroll}
+        >
+          Takahashi
+        </span>
+      </h1>
+      <p className="home-subtitle">Sean {texts[textIndex]}</p>
+      <button className="random-button" onClick={handleNavigateToAbout}>
+        I'm Feeling Lucky
+      </button>
+      <div className="phrases-container">
+        {texts.map((text, index) => (
+          <div key={index} id={`phrase-${index}`} className="phrase">
+            Sean {text}
+          </div>
+        ))}
       </div>
-      <div className="social-links fade-in delay-3">
-        <a href="https://github.com/Paperdasher" target="_blank" rel="noopener noreferrer">
-          <FaGithub size={40} color="#3498db" />
-        </a>
-        <a href="https://linkedin.com/in/seantakahashi" target="_blank" rel="noopener noreferrer">
-          <FaLinkedin size={40} color="#0077b5" />
-        </a>
-      </div>
-      <p className="fade-in delay-4">
-        My name is Sean Takahashi and I'm currently a junior at <a href="https://stuy.enschool.org" target="_blank" rel="noopener noreferrer">Stuyvesant High School</a>. 
-        My interests lie in data science and machine learning, and I hope to conduct further research in these fields.  
-      </p>
-      <p className="fade-in delay-5">
-        Check out my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a> or contact me at seanyuto@gmail.com. 
-      </p>
     </div>
   );
 };
