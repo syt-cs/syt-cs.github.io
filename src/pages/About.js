@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
-import './Home.css';
+import './About.css';
 
-const Home = () => {
+const About = () => {
   return (
     <div className="home-container">
       <img src="/pfp.jpg" alt="Sean Takahashi" className="profile-image fade-in" />
@@ -30,4 +30,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default About;
