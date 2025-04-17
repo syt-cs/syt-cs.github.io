@@ -24,7 +24,7 @@ const About = () => {
         My interests lie in data science and machine learning, and I hope to conduct further research in these fields.  
       </p>
       <p className="fade-in delay-5">
-        Check out my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a> or contact me at seanyuto [at] gmail [dot] com. 
+        Contact: seanyuto [at] gmail [dot] com
       </p>
     </div>
   );

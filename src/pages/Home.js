@@ -17,48 +17,54 @@ const Home = () => {
   const [animatedIndex, setAnimatedIndex] = useState(0);  // Current animated index
   const navigate = useNavigate();
 
+  const animatedIndexRef = useRef(animatedIndex);
+
   useEffect(() => {
     let animationFrame;
     let start;
-    const duration = 600; // Uniform duration for scrolling in ms
-    const distance = targetIndex - animatedIndex;
-
+    const duration = 600;
+    const startIndex = animatedIndexRef.current;
+    const distance = targetIndex - startIndex;
+  
     if (distance !== 0) {
       const step = (timestamp) => {
         if (!start) start = timestamp;
         const progress = Math.min((timestamp - start) / duration, 1);
         const easedProgress = easeInOutCubic(progress);
-
-        // Set animatedIndex with easedProgress (ensures smooth transition)
-        const newIndex = Math.floor(animatedIndex + distance * easedProgress);
-        
-        // Clamp the newIndex to ensure it stays within bounds (0 to texts.length - 1)
-        setAnimatedIndex(Math.min(Math.max(newIndex, 0), texts.length - 1));
-
+  
+        const interpolatedIndex = startIndex + distance * easedProgress;
+        animatedIndexRef.current = interpolatedIndex;
+        setAnimatedIndex(interpolatedIndex); // no floor here — keep it smooth
+  
         if (progress < 1) {
           animationFrame = requestAnimationFrame(step);
         } else {
-          setAnimatedIndex(targetIndex); // Ensure final destination is reached
+          animatedIndexRef.current = targetIndex;
+          setAnimatedIndex(targetIndex); // Snap to final phrase
         }
       };
-
+  
       animationFrame = requestAnimationFrame(step);
     }
-
+  
     return () => cancelAnimationFrame(animationFrame);
   }, [targetIndex]);
+  
 
   const easeInOutCubic = (t) =>
     t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
   const handleMouseEnter = () => {
     let newIndex = Math.floor(Math.random() * texts.length);
-    // Ensure the random index is not the same as the current targetIndex
     while (newIndex === targetIndex) {
       newIndex = Math.floor(Math.random() * texts.length);
     }
-    setTargetIndex(newIndex); // Set the new random target index
+    setSelectedIndex(newIndex); // Save for conditionals or navigation
+    setTargetIndex(newIndex);
   };
+  
 
   const handleMouseLeave = () => {
     setTargetIndex(0); // Always go back to “Takahashi” when mouse leaves
