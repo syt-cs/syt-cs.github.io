@@ -13,40 +13,33 @@ const Home = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedPhrase, setSelectedPhrase] = useState("Takahashi");
   const containerRef = useRef(null);
-
-  const [isAnimating, setIsAnimating] = useState(false); // throttle animation
+  const animationTimeout = useRef(null); // Ref to hold the timeout
 
   const scrollToIndex = (index) => {
-    if (isAnimating) return; // prevent stacking animations
-    setIsAnimating(true);
-  
     const itemHeight = containerRef.current?.clientHeight || 40;
     const scrollContainer = containerRef.current;
     if (!scrollContainer) return;
-  
+
     const targetY = index * itemHeight;
     scrollContainer.style.transition = 'transform 0.8s ease-in-out';
     scrollContainer.style.transform = `translateY(-${targetY}px)`;
-  
-    setTimeout(() => {
+
+    // Clear any existing timeout to prevent race conditions
+    clearTimeout(animationTimeout.current);
+
+    animationTimeout.current = setTimeout(() => {
       setCurrentIndex(index);
-      setSelectedPhrase(texts[index]);
-      setIsAnimating(false);
     }, 800); // match transition duration
   };
-  
+
   const handleMouseEnter = () => {
-    if (isAnimating) return; // don't do anything if animating
-  
     let randomIndex = Math.floor(Math.random() * texts.length);
     while (randomIndex === 0) {
       randomIndex = Math.floor(Math.random() * texts.length);
     }
     scrollToIndex(randomIndex);
   };
-  
 
   const handleMouseLeave = () => {
     scrollToIndex(0); // Back to “Takahashi”
