@@ -60,23 +60,24 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <div className="text-block">
-        <div className="line-sean">Sean</div>
-
+      <div className="intro-container">
+        <h1 className="line-sean">Sean</h1>
         <div
           className="line-takahashi"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onClick={handleClick}
+          onClick={handleNavigateToAbout}
         >
           <div className="scroll-container">
-            <div className="scrolling-text" ref={scrollRef}>
-              {isScrolling
-                ? Array.isArray(currentPhrase) &&
-                  currentPhrase.map((phrase, idx) => (
-                    <div key={idx} className="scroll-item">{phrase}</div>
-                  ))
-                : <div className="scroll-item">{currentPhrase}</div>}
+            <div
+              className="scrolling-text"
+              style={{ transform: `translateY(-${textIndex * 100}%)` }}
+            >
+              {texts.map((text, index) => (
+                <div className="scroll-item" key={index}>
+                  {text}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -84,5 +85,6 @@ const Home = () => {
     </div>
   );
 };
+  
 
 export default Home;

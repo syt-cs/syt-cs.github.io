@@ -1,52 +1,55 @@
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #000;
-  color: #fff;
-}
-
 .home-container {
-  height: 100vh;
+  width: 100vw;
+  height: calc(100vh - 70px);
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start; /* align content to the left */
-  padding-left: 5vw; /* or adjust to taste */
   background-color: #000;
+  overflow: hidden;
 }
 
-.text-block {
+.intro-container {
+  width: 70%;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  transform: translateY(-10%);
+  align-items: flex-start;
+  padding-left: 5vw;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .line-sean {
-  font-size: 6rem;
-  font-weight: bold;
+  font-size: 6vw;
+  font-weight: 700;
   color: white;
   margin: 0;
-  line-height: 1;
+  line-height: 1.2;
+  text-align: left;
 }
 
 .line-takahashi {
-  font-size: 6rem;
-  font-weight: bold;
+  font-size: 6vw;
+  font-weight: 700;
   background-color: white;
   color: black;
-  padding: 0 40px 0 0; /* right padding only */
+  height: calc(6vw + 10px); /* match Sean's height + padding */
+  overflow: hidden;
+  position: relative;
   cursor: pointer;
   user-select: none;
-  border-radius: 0;
-  white-space: nowrap;
-  height: 96px;
-  overflow: hidden;
   margin: 0;
-  line-height: 1;
+  line-height: 1.2;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 20px;
+  min-width: 28ch; /* Adjust to fit longest phrase */
+  white-space: nowrap;
 }
 
 .scroll-container {
-  height: 96px;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -57,14 +60,13 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  text-align: left;
+  transition: transform 0.6s ease-in-out;
 }
 
 .scroll-item {
-  height: 96px;
+  height: calc(6vw + 10px);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  font-size: 6vw;
   padding-left: 0;
 }
-
