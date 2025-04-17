@@ -13,37 +13,47 @@ const Home = () => {
     "loves the outdoors"
   ];
 
-  const [textIndex, setTextIndex] = useState(0);
-  const [isHovering, setIsHovering] = useState(false);
+  const [targetIndex, setTargetIndex] = useState(0);
+  const [animatedIndex, setAnimatedIndex] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
-    let interval;
-    if (isHovering) {
-      const randomIndex = Math.floor(Math.random() * (texts.length - 1)) + 1; // skip index 0
-      const steps = randomIndex;
-      let currentStep = 0;
+    let animationFrame;
+    let start;
+    const duration = 600; // uniform duration in ms
+    const distance = targetIndex - animatedIndex;
 
-      interval = setInterval(() => {
-        setTextIndex((prev) => (prev + 1) % texts.length);
-        currentStep++;
-        if (currentStep === steps) {
-          clearInterval(interval);
+    if (distance !== 0) {
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const easedProgress = easeInOutCubic(progress);
+        setAnimatedIndex(animatedIndex + distance * easedProgress);
+        if (progress < 1) {
+          animationFrame = requestAnimationFrame(step);
+        } else {
+          setAnimatedIndex(targetIndex);
         }
-      }, 150);
-    } else {
-      setTextIndex(0); // Reset to "Takahashi"
+      };
+      animationFrame = requestAnimationFrame(step);
     }
 
-    return () => clearInterval(interval);
-  }, [isHovering]);
+    return () => cancelAnimationFrame(animationFrame);
+  }, [targetIndex]);
+
+  const easeInOutCubic = (t) =>
+    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
   const handleMouseEnter = () => {
-    setIsHovering(true);
+    let newIndex = Math.floor(Math.random() * texts.length);
+    while (newIndex === targetIndex) {
+      newIndex = Math.floor(Math.random() * texts.length);
+    }
+    setTargetIndex(newIndex);
   };
 
   const handleMouseLeave = () => {
-    setIsHovering(false);
+    setTargetIndex(0); // Always go back to “Takahashi”
   };
 
   const handleNavigateToAbout = () => {
@@ -63,10 +73,10 @@ const Home = () => {
           <div className="scroll-container">
             <div
               className="scrolling-text"
-              style={{ transform: `translateY(-${textIndex * 100}%)` }}
+              style={{ transform: `translateY(-${animatedIndex * 100}%)` }}
             >
-              {texts.map((text, index) => (
-                <div className="scroll-item" key={index}>
+              {texts.map((text, i) => (
+                <div className="scroll-item" key={i}>
                   {text}
                 </div>
               ))}
