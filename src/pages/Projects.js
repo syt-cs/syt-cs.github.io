@@ -8,7 +8,7 @@ const Projects = () => {
       <div className="projects-list">
         <p className="projects-text">Work in Progress 🚧</p>
         <img
-          src="/inprogress.jpg"
+          src="/assets/inprogress.jpg"
           alt="Work in progress"
           className="work-in-progress-image"
         />

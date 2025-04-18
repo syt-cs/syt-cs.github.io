@@ -24,7 +24,7 @@ const About = () => {
         My interests lie in data science and machine learning, and I hope to conduct further research in these fields.  
       </p>
       <p className="fade-in delay-5">
-        <FaEnvelope size={20}/> seanyuto [at] gmail [dot] com
+        <FaEnvelope size={20}/>  seanyuto [at] gmail [dot] com
       </p>
     </div>
   );

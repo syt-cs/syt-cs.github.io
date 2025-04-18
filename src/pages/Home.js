@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Home.css';
 
 const Home = () => {
@@ -15,15 +15,31 @@ const Home = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
   const animationTimeout = useRef(null);
-  const [isAnimating, setIsAnimating] = useState(false); // Re-introduce this
+  const [isAnimating, setIsAnimating] = useState(false);
+  const itemHeightRef = useRef(null); // Ref to store the calculated item height
+
+  useEffect(() => {
+    // Calculate item height after the component has rendered and containerRef is available
+    if (containerRef.current && texts.length > 0) {
+      itemHeightRef.current = containerRef.current.clientHeight / texts.length;
+      console.log('Initial itemHeight calculated:', itemHeightRef.current);
+    }
+  }, [texts.length]); // Recalculate if the number of texts changes (unlikely here)
 
   const scrollToIndex = (index) => {
-    if (isAnimating) return; // Prevent stacking animations
+    if (isAnimating) return;
     setIsAnimating(true);
 
-    const itemHeight = containerRef.current?.clientHeight || 40;
+    const itemHeight = itemHeightRef.current;
     const scrollContainer = containerRef.current;
-    if (!scrollContainer) return;
+
+    console.log(`Scrolling to index: ${index}, itemHeight: ${itemHeight}`);
+
+    if (!scrollContainer || typeof itemHeight !== 'number') {
+      console.error('Scroll container or item height not available.');
+      setIsAnimating(false);
+      return;
+    }
 
     const targetY = index * itemHeight;
     scrollContainer.style.transition = 'transform 0.8s ease-in-out';
@@ -33,18 +49,18 @@ const Home = () => {
     animationTimeout.current = setTimeout(() => {
       setCurrentIndex(index);
       setIsAnimating(false);
-    }, 800); // match transition duration
+      console.log('Scroll animation finished, currentIndex:', currentIndex);
+    }, 800);
   };
 
   const handleMouseEnter = () => {
-    if (isAnimating) return; // Prevent triggering during animation
-
+    if (isAnimating) return;
     const randomIndex = Math.floor(Math.random() * (texts.length - 1)) + 1;
     scrollToIndex(randomIndex);
   };
 
   const handleMouseLeave = () => {
-    scrollToIndex(0); // Back to “Takahashi”
+    scrollToIndex(0);
   };
 
   const handleNavigateToAbout = () => {
