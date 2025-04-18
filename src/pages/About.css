@@ -60,7 +60,7 @@
 }
 
 .social-links a:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
 .profile-image {
@@ -107,4 +107,16 @@
 
 .fade-in.delay-5 {
   animation-delay: 1.5s;
+}
+
+/* Style for the email/envelope container */
+.email-container {
+  display: flex;
+  align-items: center; /* Vertically center the icon and text */
+}
+
+.email-container svg {
+  margin-right: 8px; /* Spacing between icon and text */
+  font-size: 1.2rem; /* Match paragraph font-size or adjust as needed */
+  color: #3498db; /* Match link color or choose a suitable color */
 }

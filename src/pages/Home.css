@@ -49,7 +49,7 @@ body {
 }
 
 .scroll-container {
-  height: 6vw;
+  height: 7vw; /* Increased height to accommodate "Europe" */
   position: relative;
   overflow: hidden;
 }
@@ -68,6 +68,12 @@ body {
   align-items: center;
   justify-content: flex-start;
   white-space: nowrap;
+  margin-bottom: 0.5vw; /* Add space between items */
+}
+
+/* Remove margin from the last item to avoid extra bottom space */
+.scroll-item:last-child {
+  margin-bottom: 0;
 }
 
 /* Image Section Styles */
