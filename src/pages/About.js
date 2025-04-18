@@ -20,14 +20,14 @@ const About = () => {
         </a>
       </div>
       <p className="fade-in delay-4">
-        My name is Sean Takahashi and I'm currently a junior at <a href="https://stuy.enschool.org" target="_blank" rel="noopener noreferrer">Stuyvesant High School</a>.
-        My interests lie in data science and machine learning, and I hope to conduct further research in these fields.
-      </p>
-      <p className="fade-in delay-5">
-        <div className="email-container"> {/* Wrap icon and email */}
+        <div className="email-container">
           <FaEnvelope size={20} />
           &nbsp;seanyuto [at] gmail [dot] com
         </div>
+      </p>
+      <p className="fade-in delay-5">
+        My name is Sean Takahashi and I'm currently a junior at <a href="https://stuy.enschool.org" target="_blank" rel="noopener noreferrer">Stuyvesant High School</a>.
+        My interests lie in data science and machine learning, and I hope to conduct further research in these fields.
       </p>
     </div>
   );
