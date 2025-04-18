@@ -14,9 +14,13 @@ const Home = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
-  const animationTimeout = useRef(null); // Ref to hold the timeout
+  const animationTimeout = useRef(null);
+  const [isAnimating, setIsAnimating] = useState(false); // Re-introduce this
 
   const scrollToIndex = (index) => {
+    if (isAnimating) return; // Prevent stacking animations
+    setIsAnimating(true);
+
     const itemHeight = containerRef.current?.clientHeight || 40;
     const scrollContainer = containerRef.current;
     if (!scrollContainer) return;
@@ -25,15 +29,16 @@ const Home = () => {
     scrollContainer.style.transition = 'transform 0.8s ease-in-out';
     scrollContainer.style.transform = `translateY(-${targetY}px)`;
 
-    // Clear any existing timeout to prevent race conditions
     clearTimeout(animationTimeout.current);
-
     animationTimeout.current = setTimeout(() => {
       setCurrentIndex(index);
+      setIsAnimating(false);
     }, 800); // match transition duration
   };
 
   const handleMouseEnter = () => {
+    if (isAnimating) return; // Prevent triggering during animation
+
     const randomIndex = Math.floor(Math.random() * (texts.length - 1)) + 1;
     scrollToIndex(randomIndex);
   };
