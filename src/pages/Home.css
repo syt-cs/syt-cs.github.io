@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  background-color: #181818; /* Slightly lighter black */
+  color: #e0e0e0; /* Softer white */
 }
 
 .home-page {
@@ -13,43 +13,53 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Ensure full viewport height */
   text-align: left;
+  padding: 20px; /* Add some overall padding */
+  box-sizing: border-box; /* Include padding in width/height */
 }
 
 .intro-container {
   width: 70%;
+  max-width: 900px; /* Limit intro width */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .line-sean {
-  font-size: 6vw;
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
-  color: #ffffff;
+  font-size: 5vw; /* Slightly smaller */
+  font-weight: 600; /* Less intense bold */
+  margin: 0 0 10px 0; /* Add bottom margin */
+  line-height: 1.1;
+  color: #f0f0f0;
 }
 
 .line-takahashi {
-  font-size: 6vw;
-  font-weight: 700;
+  font-size: 5vw; /* Slightly smaller */
+  font-weight: 600;
   margin-top: 10px;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 0.5vw 1.2vw;
-  height: 7vw;
+  background-color: #282828; /* Darker background */
+  color: #a8dadc; /* Pop color for text */
+  padding: 0.8vw 1.5vw; /* Adjusted padding */
+  height: auto; /* Adjust height based on content */
   overflow: hidden;
   cursor: pointer;
   width: fit-content;
-  min-width: 320px;
+  min-width: 280px; /* Adjusted min width */
   max-width: 100%;
   margin-left: -6px;
+  border-radius: 8px; /* Soft corners */
+  transition: background-color 0.3s ease;
+}
+
+.line-takahashi:hover {
+  background-color: #45a247; /* Different pop color on hover */
+  color: #f0f0f0;
 }
 
 .scroll-container {
-  height: 7vw;
+  height: auto; /* Adjust height based on scrolling text */
   position: relative;
   overflow: hidden;
 }
@@ -61,74 +71,86 @@ body {
   flex-direction: column;
 }
 
-
 .scroll-item {
-  height: 6vw;
+  height: auto; /* Adjust height based on text */
+  line-height: 1.3; /* More relaxed line height */
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align text to the start */
   justify-content: flex-start;
   white-space: nowrap;
-  margin-bottom: 0.5vw; /* Add space between items */
+  margin-bottom: 0.8vw; /* More spacing between items */
+  font-size: 4vw; /* Slightly smaller scrolling text */
+  color: #d3d3d3;
 }
 
-/* Remove margin from the last item to avoid extra bottom space */
 .scroll-item:last-child {
   margin-bottom: 0;
 }
 
-/* Image and Text Section Styles */
+
 .image-text-gallery {
-  padding: 50px 20px; /* Adjust padding as needed */
+  padding: 60px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 80%; /* Adjust width of the gallery */
-  max-width: 1000px; /* Set a maximum width */
+  align-items: center; 
+  width: 90%; 
+  max-width: 1200px; 
+  margin: 0 auto; 
 }
 
 .image-text-section {
   display: flex;
-  margin-bottom: 40px; /* Spacing between sections */
-  align-items: flex-start; /* Align items to the start for better text flow */
+  margin-bottom: 60px; 
+  align-items: center;
   width: 100%;
 }
 
 .image-wrapper {
-  width: 160px; /* Adjusted image size */
-  height: auto; /* Maintain aspect ratio */
+  width: 50%; 
+  max-width: 500px; 
+  height: auto;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin-right: 20px; /* Space between image and text (for left alignment) */
+  border-radius: 12px; 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 .image-text-section.right {
-  flex-direction: row-reverse; /* Reverse order for right alignment */
+  flex-direction: row-reverse;
 }
 
 .image-text-section.right .image-wrapper {
-  margin-left: 20px; /* Space for right alignment */
+  margin-left: 40px; 
   margin-right: 0;
 }
 
+.image-text-section.left .image-wrapper {
+  margin-right: 40px;
+}
+
 .image-wrapper img {
-  display: block; /* Prevent extra space below image */
-  max-width: 100%;
+  display: block;
+  width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 .text-wrapper {
-  flex-grow: 1;
+  width: 50%; 
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .text-wrapper h3 {
   margin-top: 0;
-  color: #eee;
+  color: #a8dadc; 
+  font-size: 2.2rem; 
+  margin-bottom: 15px;
 }
 
 .text-wrapper p {
-  color: #ccc;
-  line-height: 1.5;
+  color: #d3d3d3;
+  line-height: 1.7; 
+  font-size: 1.15rem; 
 }
 
 .image-text-section.left .text-wrapper {
@@ -141,57 +163,51 @@ body {
 
 .section-link, .external-link {
   display: inline-block;
-  margin-top: 10px;
-  padding: 8px 15px;
-  color: #3498db;
+  margin-top: 20px; 
+  padding: 10px 20px; 
+  color: #45a247; 
   text-decoration: none;
-  border: 1px solid #3498db;
-  border-radius: 5px;
-  font-size: 0.9rem;
+  border: 2px solid #45a247;
+  border-radius: 8px;
+  font-size: 1rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .section-link:hover, .external-link:hover {
-  background-color: #3498db;
-  color: #fff;
+  background-color: #45a247;
+  color: #282828; 
 }
 
-
 #section-4 .image-wrapper {
-  width: auto; 
-  height: auto;
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px; 
+  max-width: 500px; 
+  width: 100%;
 }
 
 #section-4 .image-wrapper img {
-  margin-bottom: 10px; 
-  max-width: 200px; 
-  width: auto;
-}
-
-#section-4 .image-wrapper img:last-child {
-  margin-bottom: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 
-.image-wrapper img[src$=".HEIC"],
+.image-wrapper img[src$=".jpg"], 
+.image-wrapper img[src$=".PNG"], 
 .image-wrapper img[src$=".gif"] {
-  max-height: 160px;
+  max-height: 300px;
   width: auto;
 }
 
-
-.image-wrapper {
-  min-width: 160px; 
-  min-height: 120px;
+.image-wrapper:not(#section-4 .image-wrapper) {
+  aspect-ratio: 16 / 9; 
   display: flex;
-  align-items: center; 
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
 }
 
-
-#section-4 .image-wrapper {
-  align-items: flex-start;
+.image-wrapper:not(#section-4 .image-wrapper) img {
+  object-fit: contain; 
 }

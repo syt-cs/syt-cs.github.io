@@ -1,13 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Home.css';
-import EuropeImage from '../assets/barcelona.HEIC'; 
+import EuropeImage from '../assets/barcelona.jpg'; 
 import CookingImage from '../assets/paella.gif'; 
 import SwimmerImage from '../assets/swimming.jpg';
 import PoolImage from '../assets/pool.PNG';
-import JapaneseImage from '../assets/hakama.HEIC';
-import OutdoorsImage from '../assets/camp.HEIC';
-import SkiImage from '../assets/ski.HEIC';
-import NBAImage from '../assets/baseball.HEIC';
+import JapaneseImage from '../assets/hakama.jpg';
+import OutdoorsImage from '../assets/camp.jpg';
+import SkiImage from '../assets/ski.jpg';
+import NBAImage from '../assets/baseball.jpg';
 
 const Home = () => {
   const texts = [
@@ -141,9 +141,9 @@ const Home = () => {
             <img src={PoolImage} alt="pool" />
           </div>
           <div className="text-wrapper">
-            <h3>is a swimmer</h3>
-            <p>Takahashi finds swimming to be a great way to relax and stay fit. He often goes to the local pool.</p>
-            <a href="#section-4" className="section-link">Swimming routine</a>
+            <h3>Swimming</h3>
+            <p>I've swam since I was four, but started competitively swimming since freshman year of high school. I'm a breaststroker and mainly enjoy the 100/200 breaststroke and the 200/500 freestyle.</p>
+            <a href="#section-4" className="section-link">Swimming</a>
           </div>
         </div>
 
@@ -182,7 +182,7 @@ const Home = () => {
 
         <div id="section-9" className="image-text-section right">
         <div className="image-wrapper">
-            <img src={NBAImage} alt="NBA game" />
+            <img src={NBAImage} alt="MLB game" />
           </div>
           <div className="text-wrapper">
             <h3>Basketball</h3>
