@@ -28,7 +28,7 @@ body {
 }
 
 .line-sean {
-  font-size: 4.5vw; /* Slightly smaller */
+  font-size: 4.5vw;
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
@@ -36,24 +36,24 @@ body {
 }
 
 .line-takahashi {
-  font-size: 4.5vw; /* Slightly smaller */
+  font-size: 4.5vw;
   font-weight: 700;
   margin-top: 10px;
   background-color: #ffffff;
   color: #000000;
   padding: 0.5vw 1.2vw;
-  height: auto; /* Adjust height to fit longest phrase */
+  height: auto;
   overflow: hidden;
   cursor: pointer;
   width: fit-content;
-  min-width: 400px; /* Enough width for longest phrase */
+  min-width: 400px;
   max-width: 100%;
   margin-left: -6px;
-  text-align: left; /* Align text to the left */
+  text-align: left;
 }
 
 .scroll-container {
-  height: auto; /* Adjust height to fit all items */
+  height: auto;
   position: relative;
   overflow: hidden;
 }
@@ -66,14 +66,14 @@ body {
 }
 
 .scroll-item {
-  height: auto; /* Adjust height to fit text */
+  height: auto;
   line-height: 1.2;
   display: flex;
-  align-items: flex-start; /* Align text to the start */
+  align-items: flex-start;
   justify-content: flex-start;
   white-space: nowrap;
-  margin-bottom: 0.3vw; /* Slightly less spacing */
-  font-size: 4.5vw; /* Slightly smaller scrolling text */
+  margin-bottom: 0.3vw;
+  font-size: 4.5vw;
 }
 
 .scroll-item:last-child {
@@ -86,24 +86,26 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90%; /* Take up more width */
-  max-width: 1200px; /* Increased max width */
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .image-text-section {
   display: flex;
-  margin-bottom: 80px; /* More spacing between sections */
-  align-items: flex-start; /* Align items to the start */
+  margin-bottom: 80px;
+  align-items: flex-start;
   width: 100%;
 }
 
 .image-wrapper {
-  width: 45%; /* Take up more width for images */
+  width: 45%;
   height: auto;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  display: flex; /* Ensure it's a flex container for general cases */
+  justify-content: center; /* Center single images */
 }
 
 .image-text-section.right {
@@ -127,22 +129,22 @@ body {
 }
 
 .text-wrapper {
-  width: 55%; /* Remaining width for text */
+  width: 55%;
   padding: 20px;
   box-sizing: border-box;
 }
 
 .text-wrapper h3 {
   margin-top: 0;
-  color: #00ffff; /* Bright color */
-  font-size: 4rem; /* Slightly bigger heading */
+  color: #00ffff;
+  font-size: 4rem;
   margin-bottom: 15px;
 }
 
 .text-wrapper p {
   color: #d3d3d3;
   line-height: 1.6;
-  font-size: 2rem; /* Slightly bigger text */
+  font-size: 2rem;
 }
 
 .image-text-section.left .text-wrapper {
@@ -155,48 +157,39 @@ body {
 
 .external-link {
   display: inline-block;
-  color: #00ffff; /* Bright cyan color */
+  color: #00ffff;
   font-size: 2rem;
   transition: color 0.3s ease;
 }
 
 .external-link:hover {
-  color: #ffcc00; /* Different bright hover color */
+  color: #ffcc00;
 }
 
-/* Style for the "is a swimmer" section with two landscape images */
+
 #section-4 .image-wrapper {
-  display: flex;
-  flex-direction: column; /* Stack images vertically */
-  gap: 10px; /* Spacing between images */
-  width: 60%; /* Make the image wrapper wider */
-  max-width: 600px; /* Set a max width for the stacked images */
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 10px; 
+  width: auto; 
+  max-width: 600px; 
 }
 
 #section-4 .image-wrapper img {
-  width: 100%; /* Make images take full width of the wrapper */
+  width: 100%; /* Make each image take the full width */
   height: auto;
   object-fit: cover;
   border-radius: 8px;
 }
 
 /* Adjust image size for portrait images */
-.image-wrapper img[src$=".jpg"],
-.image-wrapper img[src$=".gif"] {
-  max-height: 700px; /* Bigger portrait images */
+.image-wrapper:not(#section-4 .image-wrapper) img[src$=".jpg"],
+.image-wrapper:not(#section-4 .image-wrapper) img[src$=".gif"] {
+  max-height: 700px;
   width: auto;
 }
 
-/* Ensure consistent image wrapper behavior */
+/* Ensure consistent image wrapper behavior for single images */
 .image-wrapper:not(#section-4 .image-wrapper) {
-  display: flex;
-  align-items: flex-start; /* Align single images to the start */
-  justify-content: center;
-  width: 45%; /* Maintain consistent image width */
-}
-
-.image-wrapper:not(#section-4 .image-wrapper) img {
-  max-width: 100%;
-  max-height: 700px; /* Limit height for single images */
-  object-fit: contain;
+  align-items: flex-start;
 }

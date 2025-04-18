@@ -146,7 +146,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div id="section-5" className="image-text-section left">
+        <div id="section-5" className="image-text-section right">
         <div className="image-wrapper">
             <img src={JapaneseImage} alt="hakama" />
           </div>
@@ -158,7 +158,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div id="section-6" className="image-text-section right">
+        <div id="section-6" className="image-text-section left">
           <div className="image-wrapper">
             <img src={OutdoorsImage} alt="Frost Valley" />
           </div>
@@ -168,7 +168,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div id="section-8" className="image-text-section left">
+        <div id="section-8" className="image-text-section right">
           <div className="image-wrapper">
             <img src={SkiImage} alt="ski" />
           </div>
@@ -178,7 +178,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div id="section-9" className="image-text-section right">
+        <div id="section-9" className="image-text-section left">
         <div className="image-wrapper">
             <img src={NBAImage} alt="MLB game" />
           </div>
