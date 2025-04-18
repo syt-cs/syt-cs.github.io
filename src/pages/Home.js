@@ -73,9 +73,9 @@ const Home = () => {
       const sectionId = `section-${index}`;
       const element = document.getElementById(sectionId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else if (index === 1) {
-        window.open("https://github.com/Paperdasher", "_blank"); 
+        window.open("https://github.com/Paperdasher", "_blank");
       } else if (index === 7) {
         window.open("https://tabs.ultimate-guitar.com/tab/train/hey-soul-sister-ukulele-1331391", "_blank");
       }
@@ -91,7 +91,7 @@ const Home = () => {
             className="line-takahashi"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onClick={() => handleNavigateToAbout(0)} // No action for Takahashi
+            onClick={() => handleNavigateToAbout(currentIndex)}
           >
             <div className="scroll-container" style={{ height: '7vw', overflow: 'hidden' }}>
               <div className="scrolling-text" ref={containerRef}>

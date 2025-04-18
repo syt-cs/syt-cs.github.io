@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-  background-color: #181818; /* Slightly lighter black */
-  color: #e0e0e0; /* Softer white */
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
 }
 
 .home-page {
@@ -13,53 +13,46 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure full viewport height */
+  min-height: 100vh;
   text-align: left;
-  padding: 20px; /* Add some overall padding */
-  box-sizing: border-box; /* Include padding in width/height */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .intro-container {
   width: 70%;
-  max-width: 900px; /* Limit intro width */
+  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
 .line-sean {
-  font-size: 5vw; /* Slightly smaller */
-  font-weight: 600; /* Less intense bold */
-  margin: 0 0 10px 0; /* Add bottom margin */
-  line-height: 1.1;
-  color: #f0f0f0;
+  font-size: 6vw; /* Old size */
+  font-weight: 700; /* Old weight */
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff;
 }
 
 .line-takahashi {
-  font-size: 5vw; /* Slightly smaller */
-  font-weight: 600;
+  font-size: 6vw; /* Old size */
+  font-weight: 700; /* Old weight */
   margin-top: 10px;
-  background-color: #282828; /* Darker background */
-  color: #a8dadc; /* Pop color for text */
-  padding: 0.8vw 1.5vw; /* Adjusted padding */
-  height: auto; /* Adjust height based on content */
+  background-color: #ffffff; /* Old background */
+  color: #000000; /* Old color */
+  padding: 0.5vw 1.2vw; /* Old padding */
+  height: 7vw; /* Old height */
   overflow: hidden;
   cursor: pointer;
   width: fit-content;
-  min-width: 280px; /* Adjusted min width */
+  min-width: 320px; /* Old min width */
   max-width: 100%;
   margin-left: -6px;
-  border-radius: 8px; /* Soft corners */
-  transition: background-color 0.3s ease;
-}
-
-.line-takahashi:hover {
-  background-color: #45a247; /* Different pop color on hover */
-  color: #f0f0f0;
 }
 
 .scroll-container {
-  height: auto; /* Adjust height based on scrolling text */
+  height: 7vw; /* Old height */
   position: relative;
   overflow: hidden;
 }
@@ -72,45 +65,41 @@ body {
 }
 
 .scroll-item {
-  height: auto; /* Adjust height based on text */
-  line-height: 1.3; /* More relaxed line height */
+  height: 6vw; /* Old height */
   display: flex;
-  align-items: flex-start; /* Align text to the start */
+  align-items: center;
   justify-content: flex-start;
   white-space: nowrap;
-  margin-bottom: 0.8vw; /* More spacing between items */
-  font-size: 4vw; /* Slightly smaller scrolling text */
-  color: #d3d3d3;
+  margin-bottom: 0.5vw; /* Old spacing */
 }
 
 .scroll-item:last-child {
   margin-bottom: 0;
 }
 
-
+/* Image and Text Section Styles */
 .image-text-gallery {
-  padding: 60px 20px;
+  padding: 50px 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  width: 90%; 
-  max-width: 1200px; 
-  margin: 0 auto; 
+  align-items: center;
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .image-text-section {
   display: flex;
-  margin-bottom: 60px; 
+  margin-bottom: 60px; /* Increased spacing */
   align-items: center;
   width: 100%;
 }
 
 .image-wrapper {
-  width: 50%; 
-  max-width: 500px; 
+  width: 33%; /* One-third of the page width */
   height: auto;
   overflow: hidden;
-  border-radius: 12px; 
+  border-radius: 12px; /* Softer corners */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -119,12 +108,12 @@ body {
 }
 
 .image-text-section.right .image-wrapper {
-  margin-left: 40px; 
+  margin-left: 30px; /* Adjusted spacing */
   margin-right: 0;
 }
 
 .image-text-section.left .image-wrapper {
-  margin-right: 40px;
+  margin-right: 30px; /* Adjusted spacing */
 }
 
 .image-wrapper img {
@@ -135,22 +124,22 @@ body {
 }
 
 .text-wrapper {
-  width: 50%; 
+  width: 67%; /* Remaining width for text */
   padding: 20px;
   box-sizing: border-box;
 }
 
 .text-wrapper h3 {
   margin-top: 0;
-  color: #a8dadc; 
-  font-size: 2.2rem; 
+  color: #a8dadc; /* Bright color */
+  font-size: 1.8rem; /* Slightly bigger heading */
   margin-bottom: 15px;
 }
 
 .text-wrapper p {
   color: #d3d3d3;
-  line-height: 1.7; 
-  font-size: 1.15rem; 
+  line-height: 1.6;
+  font-size: 1.1rem; /* Slightly bigger text */
 }
 
 .image-text-section.left .text-wrapper {
@@ -163,51 +152,47 @@ body {
 
 .section-link, .external-link {
   display: inline-block;
-  margin-top: 20px; 
-  padding: 10px 20px; 
-  color: #45a247; 
-  text-decoration: none;
-  border: 2px solid #45a247;
-  border-radius: 8px;
+  margin-top: 15px;
+  color: #00ffff; /* Bright cyan color */
+  text-decoration: underline; /* Not button-like */
   font-size: 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .section-link:hover, .external-link:hover {
-  background-color: #45a247;
-  color: #282828; 
+  color: #ffcc00; /* Different bright hover color */
 }
 
+/* Style for the "is a swimmer" section with two landscape images */
 #section-4 .image-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px; 
-  max-width: 500px; 
-  width: 100%;
+  display: flex; /* Use flex to arrange images */
+  gap: 10px; /* Spacing between images */
+  max-width: 100%; /* Take full width */
 }
 
 #section-4 .image-wrapper img {
-  width: 100%;
+  width: calc(50% - 5px); /* Distribute width equally with gap */
   height: auto;
   object-fit: cover;
   border-radius: 8px;
 }
 
-
-.image-wrapper img[src$=".jpg"], 
-.image-wrapper img[src$=".PNG"], 
+/* Adjust image size for portrait images */
+.image-wrapper img[src$=".jpg"],
 .image-wrapper img[src$=".gif"] {
-  max-height: 300px;
+  max-height: 400px; /* Bigger portrait images */
   width: auto;
 }
 
+/* Ensure consistent image wrapper behavior */
 .image-wrapper:not(#section-4 .image-wrapper) {
-  aspect-ratio: 16 / 9; 
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .image-wrapper:not(#section-4 .image-wrapper) img {
-  object-fit: contain; 
+  max-width: 100%;
+  max-height: 400px; /* Limit height for single images */
+  object-fit: contain;
 }
