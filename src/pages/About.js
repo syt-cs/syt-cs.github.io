@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 import './About.css';
 
 const About = () => {
@@ -24,7 +24,7 @@ const About = () => {
         My interests lie in data science and machine learning, and I hope to conduct further research in these fields.  
       </p>
       <p className="fade-in delay-5">
-        Contact: seanyuto [at] gmail [dot] com
+        <FaEnvelope size={20}/> seanyuto [at] gmail [dot] com
       </p>
     </div>
   );
