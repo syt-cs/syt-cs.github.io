@@ -34,8 +34,6 @@ const Home = () => {
   };
 
   const handleMouseEnter = () => {
-    if (isAnimating) return;
-
     const randomIndex = Math.floor(Math.random() * (texts.length - 1)) + 1;
     scrollToIndex(randomIndex);
   };
