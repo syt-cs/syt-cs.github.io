@@ -185,10 +185,9 @@ const Home = () => {
             <img src={NBAImage} alt="MLB game" />
           </div>
           <div className="text-wrapper">
-            <h3>Basketball</h3>
+            <h3>Sports</h3>
             <p>I like watching basketball and baseball. My favorite NBA players are KD, JB, and Cam Thomas. 
               My favorite baseball players are <a href="https://www.youtube.com/watch?v=jblL-wh4YmY&ab_channel=MLB" target="_blank" rel="noopener noreferrer" className="external-link">Aaron Judge</a>, Anthony Volpe, and Yu Darvish. I hope to witness a championship game and attend the parade for both sports.
-              FYI: I'm a Yankees fan, not a Mets fan.
             </p>
           </div>
         </div>

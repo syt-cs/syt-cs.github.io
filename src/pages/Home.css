@@ -28,31 +28,32 @@ body {
 }
 
 .line-sean {
-  font-size: 6vw; /* Old size */
-  font-weight: 700; /* Old weight */
+  font-size: 4.5vw; /* Slightly smaller */
+  font-weight: 700;
   margin: 0;
   line-height: 1.2;
   color: #ffffff;
 }
 
 .line-takahashi {
-  font-size: 6vw; /* Old size */
-  font-weight: 700; /* Old weight */
+  font-size: 4.5vw; /* Slightly smaller */
+  font-weight: 700;
   margin-top: 10px;
-  background-color: #ffffff; /* Old background */
-  color: #000000; /* Old color */
-  padding: 0.5vw 1.2vw; /* Old padding */
-  height: 7vw; /* Old height */
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.5vw 1.2vw;
+  height: auto; /* Adjust height to fit longest phrase */
   overflow: hidden;
   cursor: pointer;
   width: fit-content;
-  min-width: 320px; /* Old min width */
+  min-width: 400px; /* Enough width for longest phrase */
   max-width: 100%;
   margin-left: -6px;
+  text-align: left; /* Align text to the left */
 }
 
 .scroll-container {
-  height: 7vw; /* Old height */
+  height: auto; /* Adjust height to fit all items */
   position: relative;
   overflow: hidden;
 }
@@ -65,12 +66,14 @@ body {
 }
 
 .scroll-item {
-  height: 6vw; /* Old height */
+  height: auto; /* Adjust height to fit text */
+  line-height: 1.2;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align text to the start */
   justify-content: flex-start;
   white-space: nowrap;
-  margin-bottom: 0.5vw; /* Old spacing */
+  margin-bottom: 0.3vw; /* Slightly less spacing */
+  font-size: 4.5vw; /* Slightly smaller scrolling text */
 }
 
 .scroll-item:last-child {
@@ -83,23 +86,23 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80%;
-  max-width: 1000px;
+  width: 90%; /* Take up more width */
+  max-width: 1200px; /* Increased max width */
   margin: 0 auto;
 }
 
 .image-text-section {
   display: flex;
-  margin-bottom: 60px; /* Increased spacing */
-  align-items: center;
+  margin-bottom: 80px; /* More spacing between sections */
+  align-items: flex-start; /* Align items to the start */
   width: 100%;
 }
 
 .image-wrapper {
-  width: 33%; /* One-third of the page width */
+  width: 45%; /* Take up more width for images */
   height: auto;
   overflow: hidden;
-  border-radius: 12px; /* Softer corners */
+  border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -108,12 +111,12 @@ body {
 }
 
 .image-text-section.right .image-wrapper {
-  margin-left: 30px; /* Adjusted spacing */
+  margin-left: 40px;
   margin-right: 0;
 }
 
 .image-text-section.left .image-wrapper {
-  margin-right: 30px; /* Adjusted spacing */
+  margin-right: 40px;
 }
 
 .image-wrapper img {
@@ -124,22 +127,22 @@ body {
 }
 
 .text-wrapper {
-  width: 67%; /* Remaining width for text */
+  width: 55%; /* Remaining width for text */
   padding: 20px;
   box-sizing: border-box;
 }
 
 .text-wrapper h3 {
   margin-top: 0;
-  color: #a8dadc; /* Bright color */
-  font-size: 1.8rem; /* Slightly bigger heading */
+  color: #00ffff; /* Bright color */
+  font-size: 2rem; /* Slightly bigger heading */
   margin-bottom: 15px;
 }
 
 .text-wrapper p {
   color: #d3d3d3;
   line-height: 1.6;
-  font-size: 1.1rem; /* Slightly bigger text */
+  font-size: 1.15rem; /* Slightly bigger text */
 }
 
 .image-text-section.left .text-wrapper {
@@ -165,13 +168,15 @@ body {
 
 /* Style for the "is a swimmer" section with two landscape images */
 #section-4 .image-wrapper {
-  display: flex; /* Use flex to arrange images */
+  display: flex;
+  flex-direction: column; /* Stack images vertically */
   gap: 10px; /* Spacing between images */
-  max-width: 100%; /* Take full width */
+  width: 60%; /* Make the image wrapper wider */
+  max-width: 600px; /* Set a max width for the stacked images */
 }
 
 #section-4 .image-wrapper img {
-  width: calc(50% - 5px); /* Distribute width equally with gap */
+  width: 100%; /* Make images take full width of the wrapper */
   height: auto;
   object-fit: cover;
   border-radius: 8px;
@@ -180,19 +185,20 @@ body {
 /* Adjust image size for portrait images */
 .image-wrapper img[src$=".jpg"],
 .image-wrapper img[src$=".gif"] {
-  max-height: 400px; /* Bigger portrait images */
+  max-height: 700px; /* Bigger portrait images */
   width: auto;
 }
 
 /* Ensure consistent image wrapper behavior */
 .image-wrapper:not(#section-4 .image-wrapper) {
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Align single images to the start */
   justify-content: center;
+  width: 45%; /* Maintain consistent image width */
 }
 
 .image-wrapper:not(#section-4 .image-wrapper) img {
   max-width: 100%;
-  max-height: 400px; /* Limit height for single images */
+  max-height: 700px; /* Limit height for single images */
   object-fit: contain;
 }
