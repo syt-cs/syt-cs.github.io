@@ -38,18 +38,18 @@ body {
   margin-top: 10px;
   background-color: #ffffff;
   color: #000000;
-  padding: 0 16px;
-  height: 6vw;
+  padding: 0.5vw 1.2vw;
+  height: 7vw; 
   overflow: hidden;
   cursor: pointer;
   width: fit-content;
   min-width: 320px;
   max-width: 100%;
-  margin-left: -6px; /* aligns with "Sean" */
+  margin-left: -6px;
 }
 
 .scroll-container {
-  height: 7vw; /* Increased height to accommodate "Europe" */
+  height: 7vw; 
   position: relative;
   overflow: hidden;
 }

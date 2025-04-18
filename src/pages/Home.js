@@ -5,11 +5,14 @@ const Home = () => {
   const texts = [
     "Takahashi",
     "is a programmer",
-    "is a swimmer",
     "wants to travel to Europe",
     "loves cooking",
-    "is Japanese 🇯🇵",
-    "loves the outdoors"
+    "is a swimmer",
+    "is Japanese",
+    "enjoys the outdoors",
+    "is learning the ukelele",
+    "is a karateka",
+    "needs to hit the gym"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
