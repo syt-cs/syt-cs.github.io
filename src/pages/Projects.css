@@ -23,10 +23,11 @@
   }
   
   .work-in-progress-image {
-    width: 180px;
-    height: 180px;
+    width: 40px;
+    height: 40px;
     object-fit: cover;
     margin-bottom: 15px;
+    align-self: center;
   }
   
   .coming-soon-text {

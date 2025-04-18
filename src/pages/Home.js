@@ -143,7 +143,6 @@ const Home = () => {
           <div className="text-wrapper">
             <h3>Swimming</h3>
             <p>I've swam since I was four, but started competitively swimming since freshman year of high school. I'm a breaststroker and mainly enjoy the 100/200 breaststroke and the 200/500 freestyle.</p>
-            <a href="#section-4" className="section-link">Swimming</a>
           </div>
         </div>
 
@@ -154,7 +153,7 @@ const Home = () => {
           <div className="text-wrapper">
             <h3>Japanese</h3>
             <p>Being Japanese is an important part of my identity, and its shaped who I am today. 
-              This is a traditional <a href="https://en.wikipedia.org/wiki/Hakama" target="_blank" rel="noopener noreferrer">"hakama"</a> that I wore for my Saturday school graduation.
+              This is a traditional <a href="https://en.wikipedia.org/wiki/Hakama" target="_blank" rel="noopener noreferrer" className="external-link">"hakama"</a> that I wore for my Saturday school graduation.
             </p>
           </div>
         </div>
@@ -176,7 +175,6 @@ const Home = () => {
           <div className="text-wrapper">
             <h3>Ski</h3>
             <p>I've enjoyed skiing for a while now, I picked it up fast and I try to get a couple days of runs every year. I'd like to start learning snowboarding as well!</p>
-            <a href="#section-8" className="section-link">Skiing</a>
           </div>
         </div>
 

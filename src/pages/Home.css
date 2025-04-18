@@ -135,14 +135,14 @@ body {
 .text-wrapper h3 {
   margin-top: 0;
   color: #00ffff; /* Bright color */
-  font-size: 2rem; /* Slightly bigger heading */
+  font-size: 4rem; /* Slightly bigger heading */
   margin-bottom: 15px;
 }
 
 .text-wrapper p {
   color: #d3d3d3;
   line-height: 1.6;
-  font-size: 1.15rem; /* Slightly bigger text */
+  font-size: 2rem; /* Slightly bigger text */
 }
 
 .image-text-section.left .text-wrapper {
@@ -153,16 +153,14 @@ body {
   text-align: right;
 }
 
-.section-link, .external-link {
+.external-link {
   display: inline-block;
-  margin-top: 15px;
   color: #00ffff; /* Bright cyan color */
-  text-decoration: underline; /* Not button-like */
-  font-size: 1rem;
+  font-size: 2rem;
   transition: color 0.3s ease;
 }
 
-.section-link:hover, .external-link:hover {
+.external-link:hover {
   color: #ffcc00; /* Different bright hover color */
 }
 
