@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.ca4caa3c.css",
-    "main.js": "/static/js/main.c4a6a11b.js",
+    "main.css": "/static/css/main.3005ed2e.css",
+    "main.js": "/static/js/main.3cf5137e.js",
     "static/js/453.c5673066.chunk.js": "/static/js/453.c5673066.chunk.js",
     "static/media/paella.gif": "/static/media/paella.1a7f65a246bbe92df435.gif",
     "static/media/pool.PNG": "/static/media/pool.e230aa3fadcb25b44b4a.PNG",
-    "static/media/ski.HEIC": "/static/media/ski.5b6ed90d9532da936b43.HEIC",
-    "static/media/barcelona.HEIC": "/static/media/barcelona.dd3c88522b9f8a42d15a.HEIC",
-    "static/media/hakama.HEIC": "/static/media/hakama.36b8d98594239232d5f1.HEIC",
-    "static/media/baseball.HEIC": "/static/media/baseball.e1a8859056a37801af7c.HEIC",
+    "static/media/hakama.jpg": "/static/media/hakama.f53e1d38b3bb4b24c12c.jpg",
+    "static/media/ski.jpg": "/static/media/ski.7162d667dcdbb9ef39b9.jpg",
+    "static/media/barcelona.jpg": "/static/media/barcelona.306c76bfb2242f88838f.jpg",
+    "static/media/baseball.jpg": "/static/media/baseball.dc8c7ef7320bcfd70417.jpg",
+    "static/media/camp.jpg": "/static/media/camp.e786b08b7e211953b7b2.jpg",
     "static/media/swimming.jpg": "/static/media/swimming.2ea8c5fa2caa60046e42.jpg",
-    "static/media/camp.HEIC": "/static/media/camp.97978d212ec7f672d4ba.HEIC",
     "index.html": "/index.html",
-    "main.ca4caa3c.css.map": "/static/css/main.ca4caa3c.css.map",
-    "main.c4a6a11b.js.map": "/static/js/main.c4a6a11b.js.map",
+    "main.3005ed2e.css.map": "/static/css/main.3005ed2e.css.map",
+    "main.3cf5137e.js.map": "/static/js/main.3cf5137e.js.map",
     "453.c5673066.chunk.js.map": "/static/js/453.c5673066.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ca4caa3c.css",
-    "static/js/main.c4a6a11b.js"
+    "static/css/main.3005ed2e.css",
+    "static/js/main.3cf5137e.js"
   ]
 }
