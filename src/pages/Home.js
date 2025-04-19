@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { FaMapMarkerAlt} from 'react-icons/fa';
 import './Home.css';
 import EuropeImage from '../assets/barcelona.jpg'; 
 import CookingImage from '../assets/paella.gif'; 
