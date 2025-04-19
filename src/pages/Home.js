@@ -184,8 +184,7 @@ const Home = () => {
           </div>
           <div className="text-wrapper">
             <h3>Sports</h3>
-            <p>I like watching basketball and baseball. My favorite NBA players are KD, JB, and Cam Thomas. 
-              My favorite baseball players are <a href="https://www.youtube.com/watch?v=jblL-wh4YmY&ab_channel=MLB" target="_blank" rel="noopener noreferrer" className="external-link">Aaron Judge</a>, Anthony Volpe, and Yu Darvish. I hope to witness a championship game and attend the parade for both sports.
+            <p>I like watching basketball and baseball. Some of my favorite players are <a href="https://www.youtube.com/watch?v=jblL-wh4YmY&ab_channel=MLB" target="_blank" rel="noopener noreferrer" className="external-link">Aaron Judge</a>, Kevin Durant, and Jalen Brunson. I hope to go and watch a championship game for both sports.
             </p>
           </div>
         </div>
