@@ -165,6 +165,8 @@ const Home = () => {
           <div className="text-wrapper">
             <h3>Outdoors</h3>
             <p>I like being immersed and taking pictures of nature.</p>
+            <FaMapMarkerAlt />
+            Frost Valley
           </div>
         </div>
 
