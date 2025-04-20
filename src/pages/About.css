@@ -104,8 +104,9 @@ body {
   overflow: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  display: flex; /* Ensure it's a flex container for general cases */
-  justify-content: center; /* Center single images */
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 }
 
 .image-text-section.right {
@@ -123,9 +124,11 @@ body {
 
 .image-wrapper img {
   display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto; 
+  height: auto; 
+  object-fit: contain;
 }
 
 .text-wrapper {
@@ -164,32 +167,4 @@ body {
 
 .external-link:hover {
   color: #ffcc00;
-}
-
-
-#section-4 .image-wrapper {
-  flex-direction: row; 
-  align-items: flex-start; 
-  gap: 10px; 
-  width: auto; 
-  max-width: 600px; 
-}
-
-#section-4 .image-wrapper img {
-  width: 100%; /* Make each image take the full width */
-  height: auto;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* Adjust image size for portrait images */
-.image-wrapper:not(#section-4 .image-wrapper) img[src$=".jpg"],
-.image-wrapper:not(#section-4 .image-wrapper) img[src$=".gif"] {
-  max-height: 700px;
-  width: auto;
-}
-
-/* Ensure consistent image wrapper behavior for single images */
-.image-wrapper:not(#section-4 .image-wrapper) {
-  align-items: flex-start;
 }

@@ -138,9 +138,6 @@ const About = () => {
           <div className="image-wrapper">
             <img src={SwimmerImage} alt="swimmer" />
           </div>
-          <div className="image-wrapper">
-            <img src={PoolImage} alt="pool" />
-          </div>
           <div className="text-wrapper">
             <h3>Swimming</h3>
             <p>I've swam since I was four, but started competitively swimming since freshman year of high school. I'm a breaststroker and mainly enjoy the 100/200 breaststroke and the 200/500 freestyle.</p>
