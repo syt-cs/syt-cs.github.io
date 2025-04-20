@@ -1,122 +1,195 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.about-page {
+  scroll-behavior: smooth;
+}
+
 .about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: left;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.intro-container {
+  width: 70%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.line-sean {
+  font-size: 4.5vw;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.line-takahashi {
+  font-size: 4.5vw;
+  font-weight: 700;
+  margin-top: 10px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.5vw 1.2vw;
+  height: auto;
+  overflow: hidden;
+  cursor: pointer;
+  width: fit-content;
+  min-width: 400px;
+  max-width: 100%;
+  margin-left: -6px;
+  text-align: left;
+}
+
+.scroll-container {
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.scrolling-text {
+  will-change: transform;
+  transition: transform 0.8s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-item {
+  height: auto;
+  line-height: 1.2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  white-space: nowrap;
+  margin-bottom: 0.3vw;
+  font-size: 4.5vw;
+}
+
+.scroll-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Image and Text Section Styles */
+.image-text-gallery {
+  padding: 50px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #f7f7f7;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  margin: 0;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.about-container h1 {
-  font-size: 3rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
-  font-weight: bold;
-}
-
-.about-container p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-  text-align: center;
-  max-width: 600px;
-}
-
-.about-container a {
-  text-decoration: none;
-  color: #3498db;
-}
-
-.about-container a:hover {
-  text-decoration: underline;
-}
-
-.about-location {
+.image-text-section {
   display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  color: #888;
-  margin-bottom: 1rem;
+  margin-bottom: 80px;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.about-location svg {
-  margin-right: 8px;
+.image-wrapper {
+  width: 45%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  display: flex; /* Ensure it's a flex container for general cases */
+  justify-content: center; /* Center single images */
 }
 
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+.image-text-section.right {
+  flex-direction: row-reverse;
 }
 
-.social-links a {
-  font-size: 2rem;
-  color: #3498db;
-  transition: transform 0.3s ease;
+.image-text-section.right .image-wrapper {
+  margin-left: 40px;
+  margin-right: 0;
 }
 
-.social-links a:hover {
-  transform: scale(1.1);
+.image-text-section.left .image-wrapper {
+  margin-right: 40px;
 }
 
-.profile-image {
-  width: 160px;
-  height: 160px;
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  border-radius: 50%;
-  border: 4px solid #ccc;
-  margin-bottom: 20px;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.text-wrapper {
+  width: 55%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.fade-in {
-  animation: fadeIn 1s ease forwards;
-  opacity: 0; /* Start hidden before animation triggers */
+.text-wrapper h3 {
+  margin-top: 0;
+  color: #00ffff;
+  font-size: 3rem;
+  margin-bottom: 15px;
 }
 
-.fade-in.delay-1 {
-  animation-delay: 0.3s;
+.text-wrapper p {
+  color: #d3d3d3;
+  line-height: 1.6;
+  font-size: 1.5rem;
 }
 
-.fade-in.delay-2 {
-  animation-delay: 0.6s;
+.image-text-section.left .text-wrapper {
+  text-align: left;
 }
 
-.fade-in.delay-3 {
-  animation-delay: 0.9s;
+.image-text-section.right .text-wrapper {
+  text-align: right;
 }
 
-.fade-in.delay-4 {
-  animation-delay: 1.2s;
+.external-link {
+  display: inline-block;
+  color: #00ffff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-.fade-in.delay-5 {
-  animation-delay: 1.5s;
+.external-link:hover {
+  color: #ffcc00;
 }
 
-/* Style for the email/envelope container */
-.email-container {
-  display: flex;
-  align-items: center; /* Vertically center the icon and text */
+
+#section-4 .image-wrapper {
+  flex-direction: row; 
+  align-items: flex-start; 
+  gap: 10px; 
+  width: auto; 
+  max-width: 600px; 
 }
 
-.email-container svg {
-  margin-right: 8px; /* Spacing between icon and text */
-  font-size: 1.2rem; /* Match paragraph font-size or adjust as needed */
-  color: #3498db; /* Match link color or choose a suitable color */
+#section-4 .image-wrapper img {
+  width: 100%; /* Make each image take the full width */
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Adjust image size for portrait images */
+.image-wrapper:not(#section-4 .image-wrapper) img[src$=".jpg"],
+.image-wrapper:not(#section-4 .image-wrapper) img[src$=".gif"] {
+  max-height: 700px;
+  width: auto;
+}
+
+/* Ensure consistent image wrapper behavior for single images */
+.image-wrapper:not(#section-4 .image-wrapper) {
+  align-items: flex-start;
 }
