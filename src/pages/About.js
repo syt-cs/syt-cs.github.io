@@ -4,7 +4,6 @@ import './About.css';
 import EuropeImage from '../assets/barcelona.jpg'; 
 import CookingImage from '../assets/paella.gif'; 
 import SwimmerImage from '../assets/swimming.jpg';
-import PoolImage from '../assets/pool.PNG';
 import JapaneseImage from '../assets/hakama.jpg';
 import OutdoorsImage from '../assets/camp.jpg';
 import SkiImage from '../assets/ski.jpg';
