@@ -166,8 +166,10 @@ const About = () => {
           <div className="text-wrapper">
             <h3>Outdoors</h3>
             <p>I like being immersed and taking pictures of nature.</p>
-            <FaMapMarkerAlt />
-            Frost Valley
+            <div className="about-location">
+              <FaMapMarkerAlt />
+              Frost Valley, NY
+            </div>
           </div>
         </div>
 
@@ -178,8 +180,10 @@ const About = () => {
           <div className="text-wrapper">
             <h3>Ski</h3>
             <p>I've enjoyed skiing for a while now, I picked it up fast and I try to get a couple days of runs every year. I'd like to start learning snowboarding as well!</p>
-            <FaMapMarkerAlt />
-            Mountain Creek, NJ
+            <div className="about-location">
+              <FaMapMarkerAlt />
+              Mountain Creek, NJ
+            </div>
           </div>
         </div>
 
@@ -191,8 +195,10 @@ const About = () => {
             <h3>Sports</h3>
             <p>I like watching basketball and baseball. Some of my favorite players are <a href="https://www.youtube.com/watch?v=jblL-wh4YmY&ab_channel=MLB" target="_blank" rel="noopener noreferrer" className="external-link">Aaron Judge</a>, Kevin Durant, and Jalen Brunson. I hope to go and watch a championship game for both sports.
             </p>
-            <FaMapMarkerAlt />
-            Citi Field
+            <div className="about-location">
+              <FaMapMarkerAlt />
+              Citi Field
+            </div>
           </div>
         </div>
       </div>
