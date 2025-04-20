@@ -31,7 +31,7 @@ const Home = () => {
         My interests lie in data science and machine learning, and I hope to conduct further research in these fields.
       </p>
       <p className="fade-in delay-6">
-        Check out my <Link to="/about">hobbies and passions</Link>, my <Link to="/resume">resume</Link>, and <Link to="/projects">recent projects</Link> I have been working on. 
+        Check out my <Link to="/about">hobbies and passions</Link>, my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>, and <Link to="/projects">recent projects</Link> I have been working on. 
       </p>
     </div>
   );
