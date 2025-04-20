@@ -1,10 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.49a78479.css",
-    "main.js": "/static/js/main.6747940b.js",
+    "main.css": "/static/css/main.d7c40ae6.css",
+    "main.js": "/static/js/main.807a9d8c.js",
     "static/js/453.c5673066.chunk.js": "/static/js/453.c5673066.chunk.js",
     "static/media/paella.gif": "/static/media/paella.1a7f65a246bbe92df435.gif",
-    "static/media/pool.PNG": "/static/media/pool.e230aa3fadcb25b44b4a.PNG",
     "static/media/hakama.jpg": "/static/media/hakama.f53e1d38b3bb4b24c12c.jpg",
     "static/media/ski.jpg": "/static/media/ski.7162d667dcdbb9ef39b9.jpg",
     "static/media/barcelona.jpg": "/static/media/barcelona.306c76bfb2242f88838f.jpg",
@@ -13,12 +12,12 @@
     "static/media/swimming.jpg": "/static/media/swimming.2ea8c5fa2caa60046e42.jpg",
     "static/media/inprogress.jpg": "/static/media/inprogress.6ae43822789873cac236.jpg",
     "index.html": "/index.html",
-    "main.49a78479.css.map": "/static/css/main.49a78479.css.map",
-    "main.6747940b.js.map": "/static/js/main.6747940b.js.map",
+    "main.d7c40ae6.css.map": "/static/css/main.d7c40ae6.css.map",
+    "main.807a9d8c.js.map": "/static/js/main.807a9d8c.js.map",
     "453.c5673066.chunk.js.map": "/static/js/453.c5673066.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.49a78479.css",
-    "static/js/main.6747940b.js"
+    "static/css/main.d7c40ae6.css",
+    "static/js/main.807a9d8c.js"
   ]
 }
