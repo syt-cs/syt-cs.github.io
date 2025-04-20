@@ -147,14 +147,6 @@ body {
   font-size: 1.5rem;
 }
 
-.about-location {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  color: #888;
-  margin-bottom: 1rem;
-}
-
 .image-text-section.left .text-wrapper {
   text-align: left;
 }
