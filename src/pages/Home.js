@@ -27,8 +27,8 @@ const Home = () => {
         </div>
       </p>
       <p className="fade-in delay-5">
-        My name is Sean Takahashi and I'm currently a junior at <a href="https://stuy.enschool.org" target="_blank" rel="noopener noreferrer">Stuyvesant High School</a>.
-        My interests lie in data science and machine learning, and I hope to conduct further research in these fields.
+        My name is Sean Takahashi and I'm currently a senior at <a href="https://stuy.enschool.org" target="_blank" rel="noopener noreferrer">Stuyvesant High School</a>.
+        My interests lie in data science and machine learning, and I hope to conduct further research in these fields. I'm currently a research intern at the <a href="https://www.morishita-lab.com/" target="_blank" rel="noopener noreferrer">Morishita Lab</a> in the Icahn School of Medicine at Mount Sinai, and I'm working on neuroscience behavioral research of social distancing in mice.
       </p>
       <p className="fade-in delay-6">
         Check out my <Link to="/about">hobbies and passions</Link>, my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>, and <Link to="/projects">recent projects</Link> I have been working on. 

@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaMapMarkerAlt} from 'react-icons/fa';
 import './About.css';
-import EuropeImage from '../assets/barcelona.jpg'; 
 import CookingImage from '../assets/paella.gif'; 
 import SwimmerImage from '../assets/swimming.jpg';
 import JapaneseImage from '../assets/hakama.jpg';
@@ -13,7 +12,6 @@ const About = () => {
   const texts = [
     "Takahashi",
     "is a programmer",
-    "wants to travel to Europe",
     "loves cooking",
     "is a swimmer",
     "is Japanese",
@@ -76,7 +74,7 @@ const About = () => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else if (index === 1) {
         window.open("https://github.com/Paperdasher", "_blank");
-      } else if (index === 7) {
+      } else if (index === 6) {
         window.open("https://tabs.ultimate-guitar.com/tab/train/hey-soul-sister-ukulele-1331391", "_blank");
       }
     }
@@ -110,20 +108,8 @@ const About = () => {
         </div>
       </div>
 
-      <div className="image-text-gallery">
-        <div id="section-2" className="image-text-section left">
-          <div className="image-wrapper">
-            <img src={EuropeImage} alt="barcelona" />
-          </div>
-          <div className="text-wrapper">
-            <h3>Barcelona</h3>
-            <p>I visited Barcelona in Summer 2022. As a Spanish student I thought that I could apply some of what I've learned in the classroom, but quickly realized they speak Catalan as their main language.
-              Guess I should have done my research first! I loved visiting Gaudi's architecture and his museum, but the food was the best part. I would love to go back someday.
-            </p>
-          </div>
-        </div>
 
-        <div id="section-3" className="image-text-section right">
+        <div id="section-2" className="image-text-section right">
           <div className="image-wrapper">
             <img src={CookingImage} alt="cooking" />
           </div>
@@ -133,7 +119,7 @@ const About = () => {
           </div>
         </div>
 
-        <div id="section-4" className="image-text-section left">
+        <div id="section-3" className="image-text-section left">
           <div className="image-wrapper">
             <img src={SwimmerImage} alt="swimmer" />
           </div>
@@ -143,7 +129,7 @@ const About = () => {
           </div>
         </div>
 
-        <div id="section-5" className="image-text-section right">
+        <div id="section-4" className="image-text-section right">
         <div className="image-wrapper">
             <img src={JapaneseImage} alt="hakama" />
           </div>
@@ -155,7 +141,7 @@ const About = () => {
           </div>
         </div>
 
-        <div id="section-6" className="image-text-section left">
+        <div id="section-5" className="image-text-section left">
           <div className="image-wrapper">
             <img src={OutdoorsImage} alt="Frost Valley" />
           </div>
@@ -169,7 +155,7 @@ const About = () => {
           </div>
         </div>
 
-        <div id="section-8" className="image-text-section right">
+        <div id="section-7" className="image-text-section right">
           <div className="image-wrapper">
             <img src={SkiImage} alt="ski" />
           </div>
@@ -183,7 +169,7 @@ const About = () => {
           </div>
         </div>
 
-        <div id="section-9" className="image-text-section left">
+        <div id="section-8" className="image-text-section left">
         <div className="image-wrapper">
             <img src={NBAImage} alt="MLB game" />
           </div>
@@ -197,7 +183,6 @@ const About = () => {
             </p>
           </div>
         </div>
-      </div>
     </div>
   );
 };
