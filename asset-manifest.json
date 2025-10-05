@@ -1,22 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.2704ba8c.css",
-    "main.js": "/static/js/main.c1ca7dcf.js",
+    "main.css": "/static/css/main.5e44e28d.css",
+    "main.js": "/static/js/main.f2134ffd.js",
     "static/js/453.c5673066.chunk.js": "/static/js/453.c5673066.chunk.js",
     "static/media/paella.gif": "/static/media/paella.1a7f65a246bbe92df435.gif",
     "static/media/hakama.jpg": "/static/media/hakama.f53e1d38b3bb4b24c12c.jpg",
     "static/media/ski.jpg": "/static/media/ski.7162d667dcdbb9ef39b9.jpg",
-    "static/media/barcelona.jpg": "/static/media/barcelona.306c76bfb2242f88838f.jpg",
     "static/media/baseball.jpg": "/static/media/baseball.dc8c7ef7320bcfd70417.jpg",
     "static/media/camp.jpg": "/static/media/camp.e786b08b7e211953b7b2.jpg",
     "static/media/swimming.jpg": "/static/media/swimming.2ea8c5fa2caa60046e42.jpg",
     "index.html": "/index.html",
-    "main.2704ba8c.css.map": "/static/css/main.2704ba8c.css.map",
-    "main.c1ca7dcf.js.map": "/static/js/main.c1ca7dcf.js.map",
+    "main.5e44e28d.css.map": "/static/css/main.5e44e28d.css.map",
+    "main.f2134ffd.js.map": "/static/js/main.f2134ffd.js.map",
     "453.c5673066.chunk.js.map": "/static/js/453.c5673066.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2704ba8c.css",
-    "static/js/main.c1ca7dcf.js"
+    "static/css/main.5e44e28d.css",
+    "static/js/main.f2134ffd.js"
   ]
 }
