@@ -1,28 +1,30 @@
-/* Matches site theme: Dark bg, cyan accents */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #ffffff;
-}
+/* Clean modern theme: Dark bg, cyan accents (scoped to page) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 .album-page {
   scroll-behavior: smooth;
   min-height: 100vh;
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  position: relative;
 }
 
 .album-header {
   text-align: center;
-  padding: 80px 20px 60px; /* Top for navbar, space below */
-  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%); /* Subtle depth */
+  padding: 80px 20px 60px; /* Header padding unchanged */
+  background: none;
+  position: relative;
+  z-index: 1;
 }
 
 .album-title {
   font-size: clamp(2.5rem, 6vw, 4.5vw);
-  color: #00ffff; /* Cyan theme */
+  color: #ffffff; /* Crisp white for better contrast/readability */
   margin: 0 0 10px;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 255, 255, 0.3);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 255, 255, 0.3); /* Subtle cyan glow for accent */
 }
 
 .album-subtitle {
@@ -34,65 +36,53 @@ body {
   margin-right: auto;
 }
 
-.back-link {
-  display: inline-block;
-  color: #00ffff;
-  text-decoration: none;
-  font-size: 1rem;
-  padding: 8px 16px;
-  border: 1px solid rgba(0, 255, 255, 0.3);
-  border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
-.back-link:hover {
-  background: rgba(0, 255, 255, 0.1);
-  border-color: #00ffff;
-  transform: translateY(-2px);
-}
-
-/* Gallery Grid: Responsive masonry-style */
+/* Gallery: Pinterest-style columns—full-width, minimal gaps, organic flow */
 .album-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible cols */
-  grid-auto-rows: 10px; /* Base for masonry spanning */
-  gap: 20px;
-  padding: 0 20px 60px;
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
+  column-count: 2; /* Two "views" per row on desktop/tablet */
+  column-gap: 10px; /* Tiny space between columns */
+  width: 100%; /* Full container width */
+  padding: 0 25px 60px; /* More side padding for breathing room + bottom scroll */
+  margin: 0; /* No margins */
+  orphans: 1; /* Prevent lonely images at bottom */
+  widows: 1; /* Smooth flow */
 }
 
 .album-item {
-  aspect-ratio: 1; /* Square-ish for uniformity */
+  display: inline-block; /* For column flow */
+  width: 100%; /* Full column width */
+  margin-bottom: 10px; /* Minimal vertical gap between items */
+  break-inside: avoid; /* No mid-image breaks */
   position: relative;
-  border-radius: 20px; /* Rounded edges */
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
   cursor: pointer;
+  background: #1e1e1e; /* Dark backing */
+  /* Height auto—driven by image for natural proportions */
+  height: auto;
+  max-width: 100%; /* Clamp to column */
 }
 
 .album-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2); /* Cyan glow */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.2);
 }
 
 .album-item img {
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* Crop to fill square */
+  height: auto; /* Natural height—no fixed aspect */
+  object-fit: contain; /* Whole image, no crop */
   object-position: center;
   display: block;
-  border-radius: 20px;
   transition: transform 0.3s ease;
 }
 
 .album-item:hover img {
-  transform: scale(1.1); /* Subtle zoom */
+  transform: scale(1.02);
 }
 
-/* Overlay for caption: Fades in on hover */
+/* Overlay: Hover caption */
 .image-overlay {
   position: absolute;
   bottom: 0;
@@ -105,18 +95,36 @@ body {
   transition: transform 0.3s ease;
   font-size: 0.9rem;
   text-align: center;
+  font-weight: 400;
 }
 
 .album-item:hover .image-overlay {
   transform: translateY(0);
 }
 
-/* Responsive: Adjust cols & spacing */
+/* Skeleton */
+.skeleton-item {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(90deg, #1e1e1e 25%, #2a2a2a 50%, #1e1e1e 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  break-inside: avoid;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Responsive: 2 cols desktop/tablet, 1 col mobile */
 @media (max-width: 1024px) {
   .album-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    padding: 0 15px 50px;
+    column-count: 2; /* Keep 2 on tablet */
+    column-gap: 8px;
+    padding: 0 20px 50px; /* Scaled padding for tablet */
   }
   
   .album-header {
@@ -126,32 +134,32 @@ body {
 
 @media (max-width: 768px) {
   .album-grid {
-    grid-template-columns: 1fr; /* Single column on phone */
-    gap: 15px;
-    padding: 0 10px 40px;
-  }
-  
-  .album-item {
-    aspect-ratio: 16/9; /* Wider for mobile scroll */
+    column-count: 1; /* Single column flow on phone */
+    column-gap: 0;
+    padding: 0 15px 40px; /* Consistent side padding on mobile */
+    width: 100%;
   }
   
   .album-header {
     padding: 60px 10px 30px;
   }
-  
-  .back-link {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
 }
 
-/* For very small screens */
+/* Small screens */
 @media (max-width: 480px) {
+  .album-grid {
+    padding: 0 12px 40px; /* Tighter but still buffered on tiny phones */
+  }
+  
   .album-title {
     font-size: 2rem;
   }
   
   .album-subtitle {
     font-size: 1rem;
+  }
+  
+  .skeleton-item {
+    height: 150px;
   }
 }
