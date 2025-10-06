@@ -1,21 +1,34 @@
 {
   "files": {
-    "main.css": "/static/css/main.c841fcc9.css",
-    "main.js": "/static/js/main.48e39bba.js",
+    "main.css": "/static/css/main.80962fb2.css",
+    "main.js": "/static/js/main.3451dde3.js",
     "static/js/453.c5673066.chunk.js": "/static/js/453.c5673066.chunk.js",
     "static/media/paella.gif": "/static/media/paella.1a7f65a246bbe92df435.gif",
+    "static/media/chicago.jpg": "/static/media/chicago.23a8b2a65af37d825f5f.jpg",
+    "static/media/lakecole.jpg": "/static/media/lakecole.a6c717e8f6d73620408b.jpg",
+    "static/media/ferriswheel.jpg": "/static/media/ferriswheel.b14efdf54446d7af3597.jpg",
+    "static/media/bean.jpg": "/static/media/bean.d637f4c09203ee87f3bd.jpg",
+    "static/media/fireworks.jpg": "/static/media/fireworks.55b4647adc0e2c6f17a5.jpg",
     "static/media/hakama.jpg": "/static/media/hakama.f53e1d38b3bb4b24c12c.jpg",
     "static/media/ski.jpg": "/static/media/ski.7162d667dcdbb9ef39b9.jpg",
+    "static/media/rainbasketball.jpg": "/static/media/rainbasketball.8b1c0a7181080496856d.jpg",
+    "static/media/campfire.jpg": "/static/media/campfire.dcc95af384025d960ec1.jpg",
+    "static/media/northwestern.jpg": "/static/media/northwestern.8c749acda3b8eac2e27f.jpg",
     "static/media/baseball.jpg": "/static/media/baseball.dc8c7ef7320bcfd70417.jpg",
+    "static/media/planenyc.jpg": "/static/media/planenyc.c7ff343e9c30fa72043d.jpg",
+    "static/media/beachkochi.jpg": "/static/media/beachkochi.65f5ad4cf9646e9e576e.jpg",
+    "static/media/stars.jpg": "/static/media/stars.c265474b7963424665e9.jpg",
+    "static/media/beachbarcelona.jpg": "/static/media/beachbarcelona.65121c54d434dafee2de.jpg",
     "static/media/camp.jpg": "/static/media/camp.e786b08b7e211953b7b2.jpg",
     "static/media/swimming.jpg": "/static/media/swimming.2ea8c5fa2caa60046e42.jpg",
+    "static/media/nycsunset.JPG": "/static/media/nycsunset.c10418a94e1e66a93bad.JPG",
     "index.html": "/index.html",
-    "main.c841fcc9.css.map": "/static/css/main.c841fcc9.css.map",
-    "main.48e39bba.js.map": "/static/js/main.48e39bba.js.map",
+    "main.80962fb2.css.map": "/static/css/main.80962fb2.css.map",
+    "main.3451dde3.js.map": "/static/js/main.3451dde3.js.map",
     "453.c5673066.chunk.js.map": "/static/js/453.c5673066.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c841fcc9.css",
-    "static/js/main.48e39bba.js"
+    "static/css/main.80962fb2.css",
+    "static/js/main.3451dde3.js"
   ]
 }
