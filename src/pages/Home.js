@@ -22,8 +22,7 @@ const Home = () => {
       </div>
       <p className="fade-in delay-4">
         <div className="email-container">
-          <FaEnvelope size={20} />
-          &nbsp;seanyuto [at] gmail [dot] com
+          &nbsp;<span className="email-container"><FaEnvelope size={20} />&nbsp;seanyuto [at] gmail [dot] com</span>
         </div>
       </p>
       <p className="fade-in delay-5">

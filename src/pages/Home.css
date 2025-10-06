@@ -3,41 +3,48 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: #f7f7f7;
+  /* Fixed overlap: Adjust based on your navbar height */
+  padding-top: 80px; /* Push down from navbar */
+  min-height: calc(100vh - 80px); /* Full viewport minus navbar */
+  background: linear-gradient(135deg, #f7f7f7 0%, #e3f2fd 100%); /* Stylish gradient */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   margin: 0;
+  padding-bottom: 40px; /* Extra space at bottom for mobile scroll */
 }
 
 .home-container h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem); /* Responsive font sizing */
   color: #2c3e50;
   margin-bottom: 1rem;
   font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
 .home-container p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 3vw, 1.2rem); /* Scales down on mobile */
   line-height: 1.6;
   margin-bottom: 1rem;
   text-align: center;
   max-width: 600px;
+  padding: 0 10px; /* Side padding on mobile */
 }
 
 .home-container a {
   text-decoration: none;
   color: #3498db;
+  transition: color 0.3s ease; /* Smooth hover */
 }
 
 .home-container a:hover {
+  color: #00ffff; /* Tie into your About theme */
   text-decoration: underline;
 }
 
 .home-location {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
   color: #888;
   margin-bottom: 1rem;
 }
@@ -56,20 +63,27 @@
 .social-links a {
   font-size: 2rem;
   color: #3498db;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease; /* Stylish scale + color shift */
 }
 
 .social-links a:hover {
   transform: scale(1.1);
+  color: #00ffff;
 }
 
 .profile-image {
-  width: 160px;
-  height: 160px;
+  width: clamp(120px, 20vw, 160px); /* Responsive size */
+  height: clamp(120px, 20vw, 160px);
   object-fit: cover;
   border-radius: 50%;
   border: 4px solid #ccc;
   margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Elevated look */
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05); /* Subtle zoom on hover */
 }
 
 @keyframes fadeIn {
@@ -77,7 +91,6 @@
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -86,41 +99,56 @@
 
 .fade-in {
   animation: fadeIn 1s ease forwards;
-  opacity: 0; /* Start hidden before animation triggers */
+  opacity: 0;
 }
 
-.fade-in.delay-1 {
-  animation-delay: 0.3s;
-}
+.fade-in.delay-1 { animation-delay: 0.3s; }
+.fade-in.delay-2 { animation-delay: 0.6s; }
+.fade-in.delay-3 { animation-delay: 0.9s; }
+.fade-in.delay-4 { animation-delay: 1.2s; }
+.fade-in.delay-5 { animation-delay: 1.5s; }
+.fade-in.delay-6 { animation-delay: 1.8s; }
 
-.fade-in.delay-2 {
-  animation-delay: 0.6s;
-}
-
-.fade-in.delay-3 {
-  animation-delay: 0.9s;
-}
-
-.fade-in.delay-4 {
-  animation-delay: 1.2s;
-}
-
-.fade-in.delay-5 {
-  animation-delay: 1.5s;
-}
-
-.fade-in.delay-6 {
-  animation-delay: 1.8s;
-}
-
-/* Style for the email/envelope container */
+/* Email container: Now fully flex for perfect alignment */
 .email-container {
   display: flex;
-  align-items: center; /* Vertically center the icon and text */
+  align-items: center;
+  justify-content: center; /* Center on mobile */
 }
 
 .email-container svg {
-  margin-right: 8px; /* Spacing between icon and text */
-  font-size: 1.2rem; /* Match paragraph font-size or adjust as needed */
-  color: #3498db; /* Match link color or choose a suitable color */
+  margin-right: 8px;
+  font-size: 1.2rem;
+  color: #3498db;
+  flex-shrink: 0; /* Prevent icon squish */
+}
+
+/* Mobile-specific tweaks */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 60px 20px 40px; /* More breathing room */
+    text-align: center;
+  }
+  
+  .social-links {
+    gap: 1rem; /* Tighter gaps */
+  }
+  
+  .social-links a {
+    font-size: 1.8rem; /* Slightly smaller icons */
+  }
+  
+  .profile-image {
+    border-width: 3px; /* Thinner border on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .home-container p {
+    font-size: 1rem; /* Ensure readability */
+  }
+  
+  .social-links {
+    flex-wrap: wrap; /* Wrap if needed */
+  }
 }

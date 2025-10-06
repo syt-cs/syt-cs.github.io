@@ -1,0 +1,157 @@
+/* Matches site theme: Dark bg, cyan accents */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.album-page {
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+
+.album-header {
+  text-align: center;
+  padding: 80px 20px 60px; /* Top for navbar, space below */
+  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%); /* Subtle depth */
+}
+
+.album-title {
+  font-size: clamp(2.5rem, 6vw, 4.5vw);
+  color: #00ffff; /* Cyan theme */
+  margin: 0 0 10px;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 255, 255, 0.3);
+}
+
+.album-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: #d3d3d3;
+  margin: 0 0 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-link {
+  display: inline-block;
+  color: #00ffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.back-link:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: #00ffff;
+  transform: translateY(-2px);
+}
+
+/* Gallery Grid: Responsive masonry-style */
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible cols */
+  grid-auto-rows: 10px; /* Base for masonry spanning */
+  gap: 20px;
+  padding: 0 20px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.album-item {
+  aspect-ratio: 1; /* Square-ish for uniformity */
+  position: relative;
+  border-radius: 20px; /* Rounded edges */
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.album-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2); /* Cyan glow */
+}
+
+.album-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop to fill square */
+  object-position: center;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.album-item:hover img {
+  transform: scale(1.1); /* Subtle zoom */
+}
+
+/* Overlay for caption: Fades in on hover */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: #ffffff;
+  padding: 20px 15px 15px;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.album-item:hover .image-overlay {
+  transform: translateY(0);
+}
+
+/* Responsive: Adjust cols & spacing */
+@media (max-width: 1024px) {
+  .album-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 0 15px 50px;
+  }
+  
+  .album-header {
+    padding: 60px 15px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .album-grid {
+    grid-template-columns: 1fr; /* Single column on phone */
+    gap: 15px;
+    padding: 0 10px 40px;
+  }
+  
+  .album-item {
+    aspect-ratio: 16/9; /* Wider for mobile scroll */
+  }
+  
+  .album-header {
+    padding: 60px 10px 30px;
+  }
+  
+  .back-link {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .album-title {
+    font-size: 2rem;
+  }
+  
+  .album-subtitle {
+    font-size: 1rem;
+  }
+}
