@@ -31,7 +31,7 @@ return (
       <div className="projects-list">
         {projects.map((p, pi) => (
           <article key={pi} className="project-item" aria-labelledby={`proj-${pi}-title`}>
-            <h2 className="project-title" id={`proj-${pi}-title`}>{p.title}</h2>
+            <h1 className="project-title" id={`proj-${pi}-title`}>{p.title}</h1>
 
             {/* Authors line with superscript numbers that link to institution URLs */}
             <div className="project-authors" aria-label="Authors">
@@ -77,7 +77,7 @@ return (
               </div>
             )}
 
-            <h3 className="abstract-heading">Abstract</h3>
+            <h2 className="abstract-heading">Abstract</h2>
             <p className="project-abstract">{p.abstract}</p>
           </article>
         ))}
