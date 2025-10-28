@@ -1,27 +1,27 @@
+/* tokens */
 :root {
   --bg: #ffffff;
-  --mono-900: #0b0b0b; /* main text (near black) */
+  --mono-900: #0b0b0b; /* main text (near-black) */
   --mono-700: #4b4b4b; /* muted text (authors) */
-  --mono-500: #6f6f6f; /* subtle text */
   --card-edge: rgba(11,11,11,0.06);
-  --card-bg: #ffffff; /* cards blend with page but have subtle border */
+  --card-bg: #ffffff;
   --page-padding: 20px;
   --max-width: 1100px;
-  --title-font: 'Segoe UI', system-ui, -apple-system, Roboto, "Helvetica Neue", Arial;
+  --title-font: "Harding", Palatino, serif;
 }
 
-/* Page background + base typography */
-html, body {
-  height: 100%;
-  margin: 0;
-  background: var(--bg);
-  color: var(--mono-900);
-  font-family: var(--title-font);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
+/* Force whole-page white background (override other global rules) */
+html, body, #root, .App {
+  height: 100% !important;
+  margin: 0 !important;
+  background-color: var(--bg) !important;
+  color: var(--mono-900) !important;
+  font-family: var(--title-font) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Page container */
+/* Page container (explicit white background) */
 .projects-container {
   max-width: var(--max-width);
   margin: 80px auto 40px;
@@ -32,11 +32,13 @@ html, body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: var(--bg) !important;
   color: var(--mono-900);
 }
 
-/* Page title */
+/* Page title using requested font */
 .page-title {
+  font-family: var(--title-font);
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin: 0 0 28px 0;
   color: var(--mono-900);
@@ -44,12 +46,12 @@ html, body {
   letter-spacing: 0.2px;
 }
 
-/* Project card */
+/* Project card (keep it white and remove dark overlay) */
 .project-item {
   width: 100%;
   max-width: 1040px;
   text-align: left;
-  background: var(--card-bg);
+  background: var(--card-bg) !important; /* white */
   border: 1px solid var(--card-edge);
   padding: 28px;
   border-radius: 10px;
@@ -57,7 +59,7 @@ html, body {
   margin-bottom: 24px;
 }
 
-/* Title larger and prominent */
+/* Title larger and prominent (same font) */
 .project-title {
   margin: 0 0 8px 0;
   color: var(--mono-900);
@@ -65,9 +67,10 @@ html, body {
   font-weight: 800;
   line-height: 1.12;
   letter-spacing: 0.2px;
+  font-family: var(--title-font);
 }
 
-/* Authors: smaller and muted */
+/* Authors: muted and slightly different font (keeps readability) */
 .project-authors {
   margin: 6px 0 12px 0;
   color: var(--mono-700);
@@ -76,11 +79,7 @@ html, body {
   font-family: system-ui, -apple-system, "Helvetica Neue", Arial;
 }
 
-/* Inline author name + tight superscript */
-.author { display: inline; }
-.author-name { font-weight: 600; color: var(--mono-700); }
-
-/* Tight, unboxed superscript; same monotone color */
+/* Superscript styling (tight and monotone) */
 .author-sup,
 .ref-sup {
   font-size: 0.65em;
@@ -92,13 +91,12 @@ html, body {
   font-weight: 700;
 }
 
-/* Sup link styling (no box/padding) */
+/* Remove any boxed background on sup links */
 .author-sup-link {
   color: inherit;
   text-decoration: none;
-  background: transparent;
   padding: 0;
-  border-radius: 0;
+  background: transparent;
 }
 .author-sup-link:hover,
 .author-sup-link:focus {
@@ -107,7 +105,7 @@ html, body {
   outline: none;
 }
 
-/* Institutions block: separator and list */
+/* Institutions separator and list */
 .project-institutions {
   margin-top: 10px;
   padding-top: 12px;
@@ -128,7 +126,7 @@ html, body {
   color: var(--mono-700);
   font-size: 0.95rem;
   line-height: 1.4;
-  font-family: var(--title-font); /* institution names use same font as title */
+  font-family: var(--title-font);
   font-weight: 600;
 }
 
@@ -148,7 +146,7 @@ html, body {
   text-decoration: underline;
 }
 
-/* Abstract heading + body */
+/* Abstract heading and body */
 .abstract-heading {
   margin: 18px 0 8px 0;
   color: var(--mono-900);
@@ -172,11 +170,12 @@ html, body {
   font-weight: 500;
 }
 
-/* Prevent institution names or links from being hyphenated */
+/* Prevent hyphenation or word-breaking in key elements */
 .institution-link,
 .institution-item,
 .author-name,
-.author-sup-link {
+.author-sup-link,
+.project-abstract {
   hyphens: none;
   -webkit-hyphens: none;
   -ms-hyphens: none;
@@ -184,13 +183,7 @@ html, body {
   overflow-wrap: normal;
 }
 
-/* Focus outline for accessibility */
-.project-item:focus-within {
-  outline: 3px solid rgba(11,11,11,0.03);
-  outline-offset: 4px;
-}
-
-/* Responsive tweaks */
+/* Small responsive tweaks */
 @media (max-width: 900px) {
   .project-item { padding: 20px; border-radius: 8px; }
   .project-title { font-size: 1.25rem; }
