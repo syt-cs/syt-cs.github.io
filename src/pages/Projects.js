@@ -19,7 +19,7 @@ const Projects = () => {
       ],
       institutions: [
         { name: 'Department of Psychiatry, Icahn School of Medicine at Mount Sinai, New York, New York, NY, USA', url: 'https://icahn.mssm.edu/' },
-        { name: 'Stuyvesant High School', url: 'stuy.enschool.org' }
+        { name: 'Stuyvesant High School', url: 'https://stuy.enschool.org' }
       ]
     }
   ];

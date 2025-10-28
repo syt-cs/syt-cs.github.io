@@ -1,27 +1,16 @@
-/* tokens */
 :root {
   --bg: #ffffff;
   --mono-900: #0b0b0b; /* main text (near-black) */
-  --mono-700: #4b4b4b; /* muted text (authors) */
-  --card-edge: rgba(11,11,11,0.06);
+  --mono-700: #4b4b4b; /* muted text (authors/institutions) */
+  --card-edge: rgba(11,11,11,0.04);
   --card-bg: #ffffff;
   --page-padding: 20px;
   --max-width: 1100px;
-  --title-font: "Harding", Palatino, serif;
+  --title-font: "Harding", Palatino, serif; /* requested title font */
+  --author-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-/* Force whole-page white background (override other global rules) */
-html, body, #root, .App {
-  height: 100% !important;
-  margin: 0 !important;
-  background-color: var(--bg) !important;
-  color: var(--mono-900) !important;
-  font-family: var(--title-font) !important;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Page container (explicit white background) */
+/* Page container only — force white background inside this section */
 .projects-container {
   max-width: var(--max-width);
   margin: 80px auto 40px;
@@ -32,13 +21,13 @@ html, body, #root, .App {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: var(--bg) !important;
+  background-color: var(--bg); /* local white background */
   color: var(--mono-900);
+  /* do not use !important here so navbar/global rules are not overridden */
 }
 
-/* Page title using requested font */
+/* Page title */
 .page-title {
-  font-family: var(--title-font);
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin: 0 0 28px 0;
   color: var(--mono-900);
@@ -46,20 +35,20 @@ html, body, #root, .App {
   letter-spacing: 0.2px;
 }
 
-/* Project card (keep it white and remove dark overlay) */
+/* Project card — remove border and reduce heavy shadow */
 .project-item {
   width: 100%;
   max-width: 1040px;
   text-align: left;
-  background: var(--card-bg) !important; /* white */
-  border: 1px solid var(--card-edge);
-  padding: 28px;
+  background: var(--card-bg); /* white */
+  border: none; /* removed border as requested */
+  padding: 24px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(11,11,11,0.03);
-  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(11,11,11,0.03); /* subtle only */
+  margin-bottom: 20px;
 }
 
-/* Title larger and prominent (same font) */
+/* Project title (Harding / Palatino / serif) */
 .project-title {
   margin: 0 0 8px 0;
   color: var(--mono-900);
@@ -70,16 +59,20 @@ html, body, #root, .App {
   font-family: var(--title-font);
 }
 
-/* Authors: muted and slightly different font (keeps readability) */
+/* Authors — keep the same font for authors and institutions */
 .project-authors {
   margin: 6px 0 12px 0;
   color: var(--mono-700);
   font-size: clamp(0.9rem, 1.35vw, 1rem);
   font-weight: 500;
-  font-family: system-ui, -apple-system, "Helvetica Neue", Arial;
+  font-family: var(--author-font);
 }
 
-/* Superscript styling (tight and monotone) */
+/* Inline author name + tight superscript */
+.author { display: inline; }
+.author-name { font-weight: 600; color: var(--mono-700); }
+
+/* Superscripts: unboxed, close to names, same monotone color */
 .author-sup,
 .ref-sup {
   font-size: 0.65em;
@@ -91,7 +84,7 @@ html, body, #root, .App {
   font-weight: 700;
 }
 
-/* Remove any boxed background on sup links */
+/* Sup link minimal styling */
 .author-sup-link {
   color: inherit;
   text-decoration: none;
@@ -105,19 +98,15 @@ html, body, #root, .App {
   outline: none;
 }
 
-/* Institutions separator and list */
+/* Institutions block separated by a subtle rule (appears after authors) */
 .project-institutions {
   margin-top: 10px;
   padding-top: 12px;
-  border-top: 1px solid rgba(11,11,11,0.04);
+  border-top: 1px solid var(--card-edge);
 }
 
-.institution-list {
-  list-style: none;
-  padding: 8px 0 0 0;
-  margin: 0;
-}
-
+/* Institution items: use same font as authors */
+.institution-list { list-style: none; padding: 8px 0 0 0; margin: 0; }
 .institution-item {
   display: flex;
   gap: 10px;
@@ -126,27 +115,15 @@ html, body, #root, .App {
   color: var(--mono-700);
   font-size: 0.95rem;
   line-height: 1.4;
-  font-family: var(--title-font);
-  font-weight: 600;
+  font-family: var(--author-font); /* keep same as authors */
+  font-weight: 500;
 }
-
-.institution-index {
-  min-width: 20px;
-  color: var(--mono-700);
-  font-weight: 700;
-}
-
-.institution-link {
-  color: var(--mono-700);
-  text-decoration: none;
-}
+.institution-index { min-width: 20px; color: var(--mono-700); font-weight: 700; }
+.institution-link { color: var(--mono-700); text-decoration: none; }
 .institution-link:hover,
-.institution-link:focus {
-  color: var(--mono-900);
-  text-decoration: underline;
-}
+.institution-link:focus { color: var(--mono-900); text-decoration: underline; }
 
-/* Abstract heading and body */
+/* Abstract heading + body: title font used for heading & body per request */
 .abstract-heading {
   margin: 18px 0 8px 0;
   color: var(--mono-900);
@@ -161,36 +138,30 @@ html, body, #root, .App {
   line-height: 1.7;
   font-size: clamp(0.95rem, 1.6vw, 1.05rem);
   white-space: pre-wrap;
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
+  hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;
   word-break: normal;
   overflow-wrap: normal;
   font-family: var(--title-font);
   font-weight: 500;
 }
 
-/* Prevent hyphenation or word-breaking in key elements */
+/* Prevent institution names or links from being hyphenated or split */
 .institution-link,
 .institution-item,
 .author-name,
-.author-sup-link,
-.project-abstract {
-  hyphens: none;
-  -webkit-hyphens: none;
-  -ms-hyphens: none;
+.author-sup-link {
+  hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;
   word-break: normal;
   overflow-wrap: normal;
 }
 
-/* Small responsive tweaks */
+/* Slight responsive tweaks — keep existing sizes but adapt */
 @media (max-width: 900px) {
-  .project-item { padding: 20px; border-radius: 8px; }
+  .project-item { padding: 18px; border-radius: 8px; }
   .project-title { font-size: 1.25rem; }
   .project-abstract { font-size: 0.98rem; }
   .project-authors { font-size: 0.94rem; }
 }
-
 @media (max-width: 480px) {
   .project-title { font-size: 1.1rem; }
   .author-sup { margin-left: 2px; }
