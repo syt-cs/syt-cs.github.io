@@ -1,101 +1,132 @@
+/* Palette / tokens */
+:root{
+  --bg: #ffffff;            /* page background (white) */
+  --mono-900: #1f1f1f;      /* primary monotone (title, main text) */
+  --mono-700: #4a4a4a;      /* secondary (authors) */
+  --mono-500: #6f6f6f;      /* muted text */
+  --card-edge: rgba(0,0,0,0.04);
+  --accent-border: rgba(0,0,0,0.06);
+  --card-bg: linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.005));
+  --page-padding: 20px;
+  --max-width: 1100px;
+  --title-font: 'Segoe UI', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Page background + base */
+html, body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--mono-900);
+  font-family: var(--title-font);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Page container */
 .projects-container {
-  max-width: 1100px;
+  max-width: var(--max-width);
   margin: 80px auto 40px;
-  padding: 0 20px;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 0 var(--page-padding);
+  font-family: var(--title-font);
   text-align: center;
   min-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  color: #e6fbfb;
 }
 
+/* Page title */
 .page-title {
   font-size: clamp(1.5rem, 4vw, 2rem);
   margin: 0 0 28px 0;
-  color: #00ffff;
+  color: var(--mono-900);
+  font-weight: 800;
+  letter-spacing: 0.2px;
 }
 
-/* project card */
+/* Project card */
 .project-item {
   width: 100%;
   max-width: 1040px;
   text-align: left;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  border: 1px solid rgba(0,255,255,0.06);
+  background: var(--card-bg);
+  border: 1px solid var(--accent-border);
   padding: 28px;
   border-radius: 12px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
   margin-bottom: 24px;
 }
 
-/* Title larger and prominent */
+/* Title larger and prominent (same font as page title) */
 .project-title {
-  margin: 0 0 10px 0;
-  color: #ffffff;
+  margin: 0 0 8px 0;
+  color: var(--mono-900);
   font-size: clamp(1.4rem, 3.6vw, 2rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: 0.2px;
 }
 
-/* Authors line */
+/* Authors: different look (smaller, slightly muted) */
 .project-authors {
-  margin: 8px 0 12px 0;
-  color: #cfe9e9;
-  font-size: clamp(0.95rem, 1.6vw, 1rem);
+  margin: 6px 0 12px 0;
+  color: var(--mono-700);
+  font-size: clamp(0.9rem, 1.35vw, 1rem);
+  font-weight: 500;
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial;
 }
 
-/* author span */
+/* Ensure author names and sup sit inline nicely */
 .author {
   display: inline;
 }
 
-/* author name */
+/* Author name slightly bolder than the author line text */
 .author-name {
   font-weight: 600;
-  color: #dff6f6;
+  color: var(--mono-700);
 }
 
-/* comma spacing */
-.author-sep {
-  color: #cfe9e9;
-}
-
-/* institution superscript beside author name (clickable to external site) */
-.author-sup {
-  font-size: 0.7em;
+/* Tight, unboxed superscript; same monotone color as surrounding text */
+.author-sup,
+.ref-sup {
+  font-size: 0.65em;
   vertical-align: super;
-  margin-left: 6px;
-  margin-right: 2px;
+  margin-left: 3px;   /* closer to the name */
+  margin-right: 1px;
   line-height: 0;
-}
-
-.author-sup-link {
-  color: #0645ad; /* link blue */
+  color: var(--mono-700); /* same monotone color */
+  font-weight: 700;
   text-decoration: none;
-  padding: 2px 4px;
-  border-radius: 3px;
-  background: rgba(255,255,255,0.02);
-  font-weight: 600;
 }
 
+/* Remove boxing/padding/background from sup links */
+.author-sup-link {
+  color: inherit; /* same as sup color */
+  text-decoration: none;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+/* hover/focus subtle contrast change (still monotone) */
 .author-sup-link:hover,
 .author-sup-link:focus {
-  background: rgba(6,69,173,0.08);
-  color: #00ffff;
+  color: var(--mono-900);
+  text-decoration: underline;
   outline: none;
 }
 
-/* Institutions block separated from authors and abstract */
+/* Institutions block separated from authors by a small rule (thin, subtle) */
 .project-institutions {
-  margin-top: 8px;
+  margin-top: 10px;
   padding-top: 12px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid var(--card-edge);
 }
 
+/* Institution list styling */
 .institution-list {
   list-style: none;
   padding: 8px 0 0 0;
@@ -104,42 +135,48 @@
 
 .institution-item {
   display: flex;
-  gap: 12px;
-  align-items: center;
+  gap: 10px;
+  align-items: baseline;
   margin-bottom: 6px;
-  color: #cfe9e9;
+  color: var(--mono-700);
   font-size: 0.95rem;
+  line-height: 1.4;
+  font-family: var(--title-font); /* institutions same as title font */
+  font-weight: 600;
 }
 
+/* index number before institution name (small, monotone) */
 .institution-index {
-  min-width: 22px;
-  color: #9fdcdc;
+  min-width: 20px;
+  color: var(--mono-700);
   font-weight: 700;
 }
 
-/* institution link styling (opens external site) */
+/* institution link appearance */
 .institution-link {
-  color: #dff6f6;
+  color: var(--mono-700);
   text-decoration: none;
 }
 
 .institution-link:hover,
 .institution-link:focus {
-  color: #00ffff;
+  color: var(--mono-900);
   text-decoration: underline;
 }
 
-/* Abstract heading and body */
+/* Abstract heading and abstract text — same title font as requested */
 .abstract-heading {
   margin: 18px 0 8px 0;
-  color: #aeecec;
+  color: var(--mono-900);
   font-size: clamp(1rem, 1.8vw, 1.15rem);
   font-weight: 700;
+  font-family: var(--title-font);
 }
 
+/* Abstract body */
 .project-abstract {
   margin: 0;
-  color: #cfe9e9;
+  color: var(--mono-900);
   line-height: 1.7;
   font-size: clamp(0.95rem, 1.6vw, 1.05rem);
   white-space: pre-wrap;
@@ -148,9 +185,11 @@
   -ms-hyphens: none;
   word-break: normal;
   overflow-wrap: normal;
+  font-family: var(--title-font); /* same as title font per request */
+  font-weight: 500;
 }
 
-/* Prevent institution names or links from being hyphenated */
+/* Prevent institution names or links from being hyphenated or broken */
 .institution-link,
 .institution-item,
 .author-name,
@@ -162,15 +201,22 @@
   overflow-wrap: normal;
 }
 
-/* small-screen adjustments */
+/* Accessibility and small refinements */
+.project-item:focus-within {
+  outline: 3px solid rgba(0,0,0,0.03);
+  outline-offset: 4px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 900px) {
   .project-item { padding: 20px; border-radius: 10px; }
   .project-title { font-size: 1.25rem; }
   .project-abstract { font-size: 0.98rem; }
+  .project-authors { font-size: 0.94rem; }
 }
 
 @media (max-width: 480px) {
   .project-title { font-size: 1.1rem; }
-  .author-sup { margin-left: 4px; }
+  .author-sup { margin-left: 2px; }
   .institution-index { min-width: 18px; }
 }
