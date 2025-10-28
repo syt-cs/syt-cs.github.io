@@ -1,18 +1,16 @@
-/* Palette / tokens */
-:root{
-  --bg: #ffffff;            /* page background (white) */
-  --mono-900: #1f1f1f;      /* primary monotone (title, main text) */
-  --mono-700: #4a4a4a;      /* secondary (authors) */
-  --mono-500: #6f6f6f;      /* muted text */
-  --card-edge: rgba(0,0,0,0.04);
-  --accent-border: rgba(0,0,0,0.06);
-  --card-bg: linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.005));
+:root {
+  --bg: #ffffff;
+  --mono-900: #0b0b0b; /* main text (near black) */
+  --mono-700: #4b4b4b; /* muted text (authors) */
+  --mono-500: #6f6f6f; /* subtle text */
+  --card-edge: rgba(11,11,11,0.06);
+  --card-bg: #ffffff; /* cards blend with page but have subtle border */
   --page-padding: 20px;
   --max-width: 1100px;
-  --title-font: 'Segoe UI', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --title-font: 'Segoe UI', system-ui, -apple-system, Roboto, "Helvetica Neue", Arial;
 }
 
-/* Page background + base */
+/* Page background + base typography */
 html, body {
   height: 100%;
   margin: 0;
@@ -28,13 +26,13 @@ html, body {
   max-width: var(--max-width);
   margin: 80px auto 40px;
   padding: 0 var(--page-padding);
-  font-family: var(--title-font);
   text-align: center;
   min-height: calc(100vh - 120px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  color: var(--mono-900);
 }
 
 /* Page title */
@@ -52,14 +50,14 @@ html, body {
   max-width: 1040px;
   text-align: left;
   background: var(--card-bg);
-  border: 1px solid var(--accent-border);
+  border: 1px solid var(--card-edge);
   padding: 28px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(11,11,11,0.03);
   margin-bottom: 24px;
 }
 
-/* Title larger and prominent (same font as page title) */
+/* Title larger and prominent */
 .project-title {
   margin: 0 0 8px 0;
   color: var(--mono-900);
@@ -69,7 +67,7 @@ html, body {
   letter-spacing: 0.2px;
 }
 
-/* Authors: different look (smaller, slightly muted) */
+/* Authors: smaller and muted */
 .project-authors {
   margin: 6px 0 12px 0;
   color: var(--mono-700);
@@ -78,40 +76,30 @@ html, body {
   font-family: system-ui, -apple-system, "Helvetica Neue", Arial;
 }
 
-/* Ensure author names and sup sit inline nicely */
-.author {
-  display: inline;
-}
+/* Inline author name + tight superscript */
+.author { display: inline; }
+.author-name { font-weight: 600; color: var(--mono-700); }
 
-/* Author name slightly bolder than the author line text */
-.author-name {
-  font-weight: 600;
-  color: var(--mono-700);
-}
-
-/* Tight, unboxed superscript; same monotone color as surrounding text */
+/* Tight, unboxed superscript; same monotone color */
 .author-sup,
 .ref-sup {
   font-size: 0.65em;
   vertical-align: super;
-  margin-left: 3px;   /* closer to the name */
+  margin-left: 3px;
   margin-right: 1px;
   line-height: 0;
-  color: var(--mono-700); /* same monotone color */
+  color: var(--mono-700);
   font-weight: 700;
-  text-decoration: none;
 }
 
-/* Remove boxing/padding/background from sup links */
+/* Sup link styling (no box/padding) */
 .author-sup-link {
-  color: inherit; /* same as sup color */
+  color: inherit;
   text-decoration: none;
-  padding: 0;
   background: transparent;
+  padding: 0;
   border-radius: 0;
 }
-
-/* hover/focus subtle contrast change (still monotone) */
 .author-sup-link:hover,
 .author-sup-link:focus {
   color: var(--mono-900);
@@ -119,14 +107,13 @@ html, body {
   outline: none;
 }
 
-/* Institutions block separated from authors by a small rule (thin, subtle) */
+/* Institutions block: separator and list */
 .project-institutions {
   margin-top: 10px;
   padding-top: 12px;
-  border-top: 1px solid var(--card-edge);
+  border-top: 1px solid rgba(11,11,11,0.04);
 }
 
-/* Institution list styling */
 .institution-list {
   list-style: none;
   padding: 8px 0 0 0;
@@ -141,30 +128,27 @@ html, body {
   color: var(--mono-700);
   font-size: 0.95rem;
   line-height: 1.4;
-  font-family: var(--title-font); /* institutions same as title font */
+  font-family: var(--title-font); /* institution names use same font as title */
   font-weight: 600;
 }
 
-/* index number before institution name (small, monotone) */
 .institution-index {
   min-width: 20px;
   color: var(--mono-700);
   font-weight: 700;
 }
 
-/* institution link appearance */
 .institution-link {
   color: var(--mono-700);
   text-decoration: none;
 }
-
 .institution-link:hover,
 .institution-link:focus {
   color: var(--mono-900);
   text-decoration: underline;
 }
 
-/* Abstract heading and abstract text — same title font as requested */
+/* Abstract heading + body */
 .abstract-heading {
   margin: 18px 0 8px 0;
   color: var(--mono-900);
@@ -173,7 +157,6 @@ html, body {
   font-family: var(--title-font);
 }
 
-/* Abstract body */
 .project-abstract {
   margin: 0;
   color: var(--mono-900);
@@ -185,11 +168,11 @@ html, body {
   -ms-hyphens: none;
   word-break: normal;
   overflow-wrap: normal;
-  font-family: var(--title-font); /* same as title font per request */
+  font-family: var(--title-font);
   font-weight: 500;
 }
 
-/* Prevent institution names or links from being hyphenated or broken */
+/* Prevent institution names or links from being hyphenated */
 .institution-link,
 .institution-item,
 .author-name,
@@ -201,15 +184,15 @@ html, body {
   overflow-wrap: normal;
 }
 
-/* Accessibility and small refinements */
+/* Focus outline for accessibility */
 .project-item:focus-within {
-  outline: 3px solid rgba(0,0,0,0.03);
+  outline: 3px solid rgba(11,11,11,0.03);
   outline-offset: 4px;
 }
 
-/* Responsive adjustments */
+/* Responsive tweaks */
 @media (max-width: 900px) {
-  .project-item { padding: 20px; border-radius: 10px; }
+  .project-item { padding: 20px; border-radius: 8px; }
   .project-title { font-size: 1.25rem; }
   .project-abstract { font-size: 0.98rem; }
   .project-authors { font-size: 0.94rem; }
