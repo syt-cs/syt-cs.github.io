@@ -26,8 +26,8 @@ const Home = () => {
         </div>
       </p>
       <p className="fade-in delay-5">
-        My name is Sean Takahashi and I'm currently a senior at <a href="https://stuy.enschool.org" target="_blank" rel="noopener noreferrer">Stuyvesant High School</a>.
-        My interests lie in data science and machine learning, and I hope to conduct further research in these fields. I'm currently a research intern at the <a href="https://www.morishita-lab.com/" target="_blank" rel="noopener noreferrer">Morishita Lab</a> in the Icahn School of Medicine at Mount Sinai, and I'm working on neuroscience behavioral research of social distancing in mice.
+        My name is Sean Takahashi and I'm currently a freshman at <a href="https://www.stonybrook.edu/" target="_blank" rel="noopener noreferrer">Stony Brook University</a> studying data science and economics. I recently graduated from <a href="https://stuy.enschool.org" target="_blank" rel="noopener noreferrer">Stuyvesant High School</a> in 2026.
+        My interests lie in data science and machine learning, and I hope to conduct further research in these fields. I was formerly a research intern at the <a href="https://www.morishita-lab.com/" target="_blank" rel="noopener noreferrer">Morishita Lab</a> in the Icahn School of Medicine at Mount Sinai. My projects included machine learning model building and analysis of social distancing in mice for neuroscience behavioral research along with building a new automated video acquisition system for updated FLIR cameras and behavioral experiment machines.
       </p>
       <p className="fade-in delay-6">
         Check out my <Link to="/about">hobbies and passions</Link>, my <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">resume</a>, and <Link to="/projects">recent projects</Link> I have been working on. 
